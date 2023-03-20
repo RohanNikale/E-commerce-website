@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+.nav{
+    font-family: 'Bai Jamjuree', sans-serif;
+    background-color: rgb(34, 34, 65);
+    color: white;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar{
+    margin: 0 150px;
+    width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+}
+.search{
+    display: flex;
+    align-items: center;
+}
+.navbar .search input{
+    border-radius: 7px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border: none;
+    height: 35px;
+    width: 600px;
+    padding: 0 19px;
+}
+.navbar .search button{
+    border-radius: 7px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    background-color: #fcbb6a;
+    height: 35px;
+    border: none;
+    width: 60px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+
+}
+
+
+
+.msearch input{
+    border-radius: 7px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border: none;
+    height: 35px;
+    padding: 0 19px;
+    display: none;
+}
+.msearch button{
+    border-radius: 7px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    background-color: #fcbb6a;
+    height: 35px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: none;
+
+
+}
+
+.navbar .auth{
+    display: flex;
+}
+.navbar .login,.signup{
+    margin: 0 20px;
+}
+
+.navbar .fmenu ,.fav, .cart , .auth{
+    font-size: 0.9rem;
+    display: flex;
+    margin:0 29px;
+    align-items: center;
+}
+
+
+
+nav .bnavbar{
+    background-color: rgb(28, 28, 52);
+    color: white;
+    display: flex;
+}
+.bnavbar ul{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+    align-items: center;
+    list-style: none;
+}
+.bnavbar li{
+    margin:0 20px;
+}
+
+
+
+@media (max-width:1600px) {
+    .navbar{
+        margin: 0 100px;
+    
+    }
+    .navbar .search input{
+
+        width: 400px;
+        padding: 0 19px;
+    }
+    .logo h1{
+        width: 80px;
+        margin: 0 60px;
+    }
+    .navbar .fmenu ,.fav, .cart , .auth{
+        font-size: 0.9rem;
+        margin:0 29px;
+ 
+    }
+    
+}
+
+
+
+@media (max-width:1150px) {
+    .navbar{
+        margin: 0 40px;
+    
+    }
+    .navbar .search input{
+
+        width: 300px;
+        padding: 0 19px;
+    }
+    .logo h1{
+        width: 80px;
+        margin: 0 20px;
+    }
+    .navbar .fmenu ,.fav, .cart , .auth{
+        font-size: 0.7rem;
+        margin:0 19px;
+ 
+    }
+
+    
+}
+
+@media (max-width:858px) {
+    .navbar .search input{
+
+        width: 200px;
+        padding: 0 19px;
+    }
+    
+}
+
+@media (max-width:756px) {
+    .navbar{
+        margin: 0 10px;
+    
+    }
+    .navbar .search input ,button{
+        width: 200px;
+        padding: 0 19px;
+        display: none;
+    }
+    .msearch{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        background-color: rgb(34, 34, 65);
+    }
+    .msearch input{
+        display: block;
+        width: 90%;
+    }
+    .msearch button{
+        display: block;
+        width: 10%;
+    }
+}
