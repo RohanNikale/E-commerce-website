@@ -11,7 +11,7 @@ export default function Navbar() {
           <div className="navbar">
             <div className="logo">
 
-              <h1>e-shop</h1>
+              <h1>onKart</h1>
             </div>
             <div className="search">
               <input type="text" placeholder='search produc here' /><button>
@@ -20,15 +20,15 @@ export default function Navbar() {
             </div>
             <div className="fmenu">
               <div className="auth">
-                <img src={user} alt="" />&nbsp; Hello, login
+                <img src={user} alt="" />&nbsp;<span>Hello, login
                 <br />
-                &nbsp;&nbsp;My account
+                &nbsp;&nbsp;My account</span> 
               </div>
               <div className="cart">
-                <img src={cart} alt="" />&nbsp; Cart
+                <img src={cart} alt="" />&nbsp;<span>Cart</span> 
               </div>
               <div className="fav">
-                <img src={wish} alt="" />&nbsp; Favurite <br />&nbsp; Wish List
+                <img src={wish} alt="" /><span>&nbsp; Favurite <br />&nbsp; Wish List</span>
               </div>
             </div>
           </div>
@@ -41,11 +41,10 @@ export default function Navbar() {
         <div className="bnavbar">
           <ul>
             
-            <li><i class="fa-sharp fa-solid fa-bars"></i>&nbsp; Shop category</li>
+            <li><i class="fa-sharp fa-solid fa-bars"></i>&nbsp; category</li>
             <li>Home</li>
-            <li>Boys</li>
-            <li>Girl</li>
-            <li>Kids</li>
+            <li>Deal</li>
+            <li>Sell</li>
             <li>Contact</li>
             <i className="fa-solid fa-magnifying-glass"></i>
           </ul>

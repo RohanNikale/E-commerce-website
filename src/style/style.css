@@ -15,7 +15,7 @@
 }
 
 .navbar{
-    margin: 0 150px;
+    margin: 0 7%;
     width: 100%;
    display: flex;
    justify-content: space-between;
@@ -105,6 +105,7 @@ nav .bnavbar{
     font-weight: bold;
     align-items: center;
     list-style: none;
+    padding-left: 6%;
 }
 .bnavbar li{
     margin:0 20px;
@@ -112,9 +113,163 @@ nav .bnavbar{
 
 
 
+
+
+
+
+
+
+.main{
+    margin: 50px 7%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    
+}
+.main .fbanner{
+    overflow: hidden;
+    width: 49%;
+    height: 48%;
+    /* background-image: url('../images/main-banner.jpg'); */
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+
+}
+.main .fbanner video{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    position: relative;
+}
+.mutebutton{
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    z-index: 999;
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+figure{
+    position: relative;
+    
+}
+
+.main .fbanner figcaption{
+    position: absolute;
+    top: 0px;
+    /* background-color: red; */
+    width: 100%;
+    /* margin-top: 30px; */
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    padding: 88px 60px;
+    height: 100%;
+    font-size: 1.2rem;
+
+}
+.fbanner span{
+    color: #ff9b3d;
+}
+
+.main .fbanner figcaption .buynow{
+    background-color: black;
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+/* .main .fbanner h1{
+    width: 50;
+} */
+
+.banners{
+    width: 48%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+.firstimg, .twoimg, .three, .four{
+    width: 48%;
+    height: 48%;
+    
+}
+.banners img{
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+.banners figure{
+    position: relative;
+
+}
+.banners figcaption{
+    position: absolute;
+    top: 10px;
+    padding: 40px 30px;
+    font-size: 1rem;
+
+}
+.banners button{
+    background-color: black;
+    width: 80px;
+    height: 40px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+
+
+
+.services{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.137);
+    width: 100%;
+    font-size: 1rem;
+    justify-content: center;
+
+    /* overflow: auto;
+    white-space: nowrap;
+    padding-left: 1px; */
+
+}
+.service{
+    width: 300px;
+    display: flex;
+    height: 140px;
+    align-items: center;
+    /* justify-content: center; */
+    
+}
+.service img{
+    width: 40px;
+    display: flex;
+    height: 40px;
+    margin: 10px 30px;
+    
+}
+
+
+
 @media (max-width:1600px) {
     .navbar{
-        margin: 0 100px;
+        margin: 0 5%;
     
     }
     .navbar .search input{
@@ -132,6 +287,18 @@ nav .bnavbar{
  
     }
     
+
+
+    .main .fbanner figcaption{
+        padding: 50px 60px;
+        font-size: 1rem;
+    }
+    .banners figcaption{
+
+        padding: 40px 30px;
+        font-size: 0.7rem;
+    
+    }
 }
 
 
@@ -156,7 +323,17 @@ nav .bnavbar{
  
     }
 
+    .main .fbanner figcaption{
+        padding: 30px 30px;
+        font-size: 0.7rem;
+    }
+    .banners figcaption{
+        position: absolute;
+        top: 10px;
+        padding: 10px 20px;
+        font-size: 0.7rem;
     
+    }
 }
 
 @media (max-width:858px) {
@@ -169,11 +346,12 @@ nav .bnavbar{
 }
 
 @media (max-width:756px) {
+
     .navbar{
         margin: 0 10px;
     
     }
-    .navbar .search input ,button{
+    .navbar .search {
         width: 200px;
         padding: 0 19px;
         display: none;
@@ -185,11 +363,110 @@ nav .bnavbar{
         background-color: rgb(34, 34, 65);
     }
     .msearch input{
-        display: block;
+        display: flex;
         width: 90%;
     }
     .msearch button{
-        display: block;
-        width: 10%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        width: 20%;
     }
+
+    .bnavbar ul{
+        overflow: auto;
+        white-space: nowrap;
+        padding-left: 13px;
+    }  
+
+    .main{
+        margin: 20px 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+    }
+    .main .fbanner{
+        overflow: hidden;
+        width: 100%;
+        height: 48%;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+    
+    }
+    .main .fbanner figcaption{
+        padding: 60px 40px;
+        font-size: 1rem;
+    }
+
+    .banners{
+        margin-top: 3%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    
+    }
+
+}
+
+@media (max-width:519px) {
+    
+    .bnavbar li{
+        margin:0 10px;
+        font-size: 0.8rem;
+    }
+
+    .main .fbanner figcaption{
+        padding: 60px 40px;
+        font-size: 0.7rem;
+    }
+
+
+    .service{
+        width: 100%;
+        display: flex;
+        height: 100px;
+        /* align-items: center; */
+        
+    }
+}
+
+@media (max-width:458px) {
+    .nav .fmenu span{
+        display: none;
+    }
+    .navbar .fmenu ,.fav, .cart , .auth{
+        font-size: 0.7rem;
+        margin:0 7px;
+ 
+    }
+    .main .fbanner figcaption{
+        padding: 30px 20px;
+        font-size: 0.6rem;
+    }
+    .banners figcaption{
+        position: absolute;
+        top: 10px;
+        padding: 10px 20px;
+        font-size: 2.4vw;
+    
+    }
+    .banners button{
+
+        width: 60px;
+        height: 25px;
+
+    }
+    
+}
+
+@media (max-width:322px) 
+{
+    .bnavbar ul{
+        overflow: auto;
+        white-space: nowrap;
+        padding-left: 1px;
+    } 
+
 }
