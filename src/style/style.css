@@ -239,11 +239,11 @@ figure{
 .services{
     display: flex;
     flex-wrap: wrap;
-    background-color: rgba(0, 0, 0, 0.137);
+    background-color: rgba(0, 0, 0, 0.05);
     width: 100%;
     font-size: 1rem;
     justify-content: center;
-
+    padding: 10px 0;
     /* overflow: auto;
     white-space: nowrap;
     padding-left: 1px; */
@@ -264,6 +264,45 @@ figure{
     margin: 10px 30px;
     
 }
+
+
+
+
+.categoryBg{
+    padding: 0 7%;
+    background-color: rgba(0, 0, 0, 0.05);
+
+}
+.category{
+    background-color: white;
+    border-radius: 17px;
+    display: flex;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 1px 1px 19px 1px rgba(0, 0, 0, 0.233);
+    padding: 30px 0;
+    width: 100%;
+        /* overflow: auto;
+    white-space: nowrap;
+    padding-left: 1px; */
+}
+.category .product{
+    border-right: 1px solid rgba(0, 0, 0, 0.227);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.227);
+    padding: 30px 22px;
+    display: flex;
+}
+.producttext{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.category .product img{
+    width: 70px;
+}
+
 
 
 
@@ -407,6 +446,20 @@ figure{
         flex-wrap: wrap;
     
     }
+    .categoryBg{
+        padding: 0 10px;
+    }
+    .category{
+        /* justify-content: flex-start; */
+    }
+    .category .product{
+        border: 1px solid rgba(0, 0, 0, 0.096);
+        width: 40%;
+    }
+    .category .producttext{
+    font-size: 3vw;
+
+    }
 
 }
 
@@ -429,6 +482,9 @@ figure{
         height: 100px;
         /* align-items: center; */
         
+    }
+    .category .product{
+        width: 36%;
     }
 }
 
@@ -457,6 +513,13 @@ figure{
         width: 60px;
         height: 25px;
 
+    }
+
+    .category .product img{
+        width: 40px;
+    }
+    .category .product{
+        width: 30%;
     }
     
 }
