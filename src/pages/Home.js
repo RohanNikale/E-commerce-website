@@ -1,5 +1,6 @@
 import React from 'react'
 import Category from '../components/Category';
+import Featuredcollection from '../components/Featuredcollection';
 import Services from "../components/Services";
 import Topmain from "../components/Topmain";
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
             <Topmain />
             <Services />
             <Category/>
+            <Featuredcollection/>
         </div>
     )
 }

@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import DOMPurify from 'dompurify'
-import mainbanner from '../images/main-banner-1.jpg'
+import React, { useState } from 'react'
 import one from '../images/catbanner-01.jpg'
-import two from '../images/catbanner-02.jpg'
 import three from '../images/catbanner-03.jpg'
 import four from '../images/catbanner-04.jpg'
+import fashion from '../images/fashion.jpg'
 import video from '../images/video.mp4'
 export default function Topmain() {
 
-    let [state,setState]=useState(true)
     let [sound,setSound]=useState(true)
 
-    useEffect(() => {
-        setTimeout(() => {
-            try{   
-                document.getElementById('video').play()
-            }catch{
-                setState(false)
-            }
-        }, 5000)
-    })
     const soundplay=()=>{
         let check=document.getElementById('video').muted
         let a=document.getElementById('video')
@@ -46,7 +34,7 @@ export default function Topmain() {
  {
 
  }
-                                <button onClick={soundplay} className='mutebutton'>{sound!==true?<i class="fa-solid fa-volume-high"></i>:<i class="fa-solid fa-volume-xmark"></i>}</button>
+                                <button onClick={soundplay} className='mutebutton'>{sound!==true?<i className="fa-solid fa-volume-high"></i>:<i className="fa-solid fa-volume-xmark"></i>}</button>
                             <video id='video' muted autoPlay loop src={video} type="video/mp4">
                             </video>
 
@@ -61,7 +49,7 @@ export default function Topmain() {
                                     Starting from RS.2,999
                                 </p>
                                 <br />
-                                <button onClick={soundplay} className='buynow'>Buy now</button>
+                                <button className='buynow'>Buy now</button>
                             </figcaption> 
                         </figure>
 
@@ -79,8 +67,8 @@ export default function Topmain() {
                         </div>
                         <div className="twoimg">
                             <figure>
-                                <img src={two} alt="" />
-                                <figcaption><h2>Watch's</h2>
+                                <img src={fashion} alt="" />
+                                <figcaption><h2>Men's & Woman <br /> Fashion</h2>
                                     <p>Starting from Rs.999 </p>
                                     <br />
                                     <button>Explore</button>

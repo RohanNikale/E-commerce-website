@@ -41,7 +41,7 @@ export default function Navbar() {
         <div className="bnavbar">
           <ul>
             
-            <li><i class="fa-sharp fa-solid fa-bars"></i>&nbsp; category</li>
+            <li><i className="fa-sharp fa-solid fa-bars"></i>&nbsp; category</li>
             <li>Home</li>
             <li>Deal</li>
             <li>Sell</li>

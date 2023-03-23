@@ -73,6 +73,7 @@
     cursor: pointer;
     font-size: 0.9rem;
     display: none;
+    cursor: pointer;
 
 
 }
@@ -189,6 +190,7 @@ figure{
     color: white;
     font-weight: bold;
     border: none;
+    cursor: pointer;
 }
 
 /* .main .fbanner h1{
@@ -231,6 +233,7 @@ figure{
     color: white;
     font-weight: bold;
     border: none;
+    cursor: pointer;
 }
 
 
@@ -271,13 +274,13 @@ figure{
 .categoryBg{
     padding: 0 7%;
     background-color: rgba(0, 0, 0, 0.05);
+    padding-bottom: 40px;
 
 }
 .category{
     background-color: white;
-    border-radius: 17px;
+    border-radius: 7px;
     display: flex;
-    margin-bottom: 40px;
     flex-wrap: wrap;
     justify-content: center;
     box-shadow: 1px 1px 19px 1px rgba(0, 0, 0, 0.233);
@@ -288,8 +291,8 @@ figure{
     padding-left: 1px; */
 }
 .category .product{
-    border-right: 1px solid rgba(0, 0, 0, 0.227);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.227);
+    border-right: 1px solid rgba(0, 0, 0, 0.044);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.044);
     padding: 30px 22px;
     display: flex;
 }
@@ -298,9 +301,54 @@ figure{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    cursor: pointer;
 }
 .category .product img{
     width: 70px;
+    cursor: pointer;
+}
+
+
+
+
+
+.cardsmain{
+    padding: 0 7%;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.cards{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:center;
+}
+.cards .card{
+    width: 200px;
+    display: flex;
+    height: auto;
+    object-fit:fill;
+    margin:3% 1%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 1px 1px 19px 1px rgba(0, 0, 0, 0.093);
+    border-radius: 7px;
+
+
+}
+.cards .card img{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 39px;
+
+    
+}
+.cards figure{
+    width: 100%;
+}
+.cards figcaption{
+    width: 100%;
 }
 
 
@@ -381,6 +429,11 @@ figure{
         width: 200px;
         padding: 0 19px;
     }
+
+    .cards .card{
+        width: 260px;
+        display: flex;
+    }
     
 }
 
@@ -410,6 +463,7 @@ figure{
         align-items: center;
         display: flex;
         width: 20%;
+        cursor: pointer;
     }
 
     .bnavbar ul{
@@ -448,6 +502,7 @@ figure{
     }
     .categoryBg{
         padding: 0 10px;
+        padding-bottom: 20px;
     }
     .category{
         /* justify-content: flex-start; */
@@ -459,6 +514,15 @@ figure{
     .category .producttext{
     font-size: 3vw;
 
+    }
+    .cardsmain{
+        padding: 0 2%;
+        background-color: rgba(0, 0, 0, 0.05);
+    }   
+
+    .cards .card{
+        width: 270px;
+        display: flex;
     }
 
 }
@@ -486,6 +550,12 @@ figure{
     .category .product{
         width: 36%;
     }
+
+    .cards .card{
+        width: 170px;
+        
+    
+    }
 }
 
 @media (max-width:458px) {
@@ -512,6 +582,7 @@ figure{
 
         width: 60px;
         height: 25px;
+        cursor: pointer;
 
     }
 
@@ -521,9 +592,24 @@ figure{
     .category .product{
         width: 30%;
     }
+    .cards .card{
+        width: 130px;
+        
+    
+    }
     
 }
 
+
+@media (max-width:372px) 
+{
+    .cards .card{
+        width: 120px;
+        
+    
+    }
+
+}
 @media (max-width:322px) 
 {
     .bnavbar ul{
@@ -532,4 +618,13 @@ figure{
         padding-left: 1px;
     } 
 
+    .cards .card{
+        margin: 20px;
+        width: 100%;
+        
+    }
+
+
 }
+
+
