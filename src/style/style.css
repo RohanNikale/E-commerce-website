@@ -386,7 +386,7 @@ figure{
 
 
 footer{
-    /* width: 100%; */
+    width: 100%;
     background-color: rgb(28, 28, 52);
     color: white;
     font-size: 1.1rem;

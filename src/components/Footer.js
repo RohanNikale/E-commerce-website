@@ -39,15 +39,15 @@ export default function Fashionsection() {
             <h3>Social</h3>
             <ul>
               <a href="https://www.linkedin.com/in/rohan-nikale-a1a1b922a/" target="_blank">
-                <i class="fa-brands fa-linkedin"></i></a>
+                <i className="fa-brands fa-linkedin"></i></a>
               <a href="https://twitter.com/rohan_nikale" target="_blank">
-                <i class="fa-brands fa-twitter"></i></a>
+                <i className="fa-brands fa-twitter"></i></a>
               <a href="https://www.instagram.com/rohannikale7/" target="_blank">
-                <i class="fa-brands fa-instagram"></i></a>
+                <i className="fa-brands fa-instagram"></i></a>
               <a href="https://www.facebook.com/RohanNikale07/" target="_blank">
-                <i class="fa-brands fa-facebook"></i></a>
+                <i className="fa-brands fa-facebook"></i></a>
               <a href="https://www.github.com/rohannikale/" target="_blank">
-                <i class="fa-brands fa-github"></i>
+                <i className="fa-brands fa-github"></i>
               </a>
 
             </ul>
