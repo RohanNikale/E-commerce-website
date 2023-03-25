@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200&display=swap');
-*{
+
+* {
     padding: 0;
     margin: 0;
+    /* overflow-x: hidden; */
 }
-.nav{
+
+.nav {
     font-family: 'Bai Jamjuree', sans-serif;
     background-color: rgb(34, 34, 65);
     color: white;
@@ -14,19 +17,21 @@
     justify-content: center;
 }
 
-.navbar{
+.navbar {
     margin: 0 7%;
     width: 100%;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 }
-.search{
+
+.search {
     display: flex;
     align-items: center;
 }
-.navbar .search input{
+
+.navbar .search input {
     border-radius: 7px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
@@ -35,7 +40,8 @@
     width: 600px;
     padding: 0 19px;
 }
-.navbar .search button{
+
+.navbar .search button {
     border-radius: 7px;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -52,7 +58,7 @@
 
 
 
-.msearch input{
+.msearch input {
     border-radius: 7px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
@@ -61,7 +67,8 @@
     padding: 0 19px;
     display: none;
 }
-.msearch button{
+
+.msearch button {
     border-radius: 7px;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -78,28 +85,34 @@
 
 }
 
-.navbar .auth{
+.navbar .auth {
     display: flex;
 }
-.navbar .login,.signup{
+
+.navbar .login,
+.signup {
     margin: 0 20px;
 }
 
-.navbar .fmenu ,.fav, .cart , .auth{
+.navbar .fmenu,
+.fav,
+.cart,
+.auth {
     font-size: 0.9rem;
     display: flex;
-    margin:0 29px;
+    margin: 0 29px;
     align-items: center;
 }
 
 
 
-nav .bnavbar{
+nav .bnavbar {
     background-color: rgb(28, 28, 52);
     color: white;
     display: flex;
 }
-.bnavbar ul{
+
+.bnavbar ul {
     display: flex;
     width: 100%;
     height: 40px;
@@ -108,8 +121,9 @@ nav .bnavbar{
     list-style: none;
     padding-left: 6%;
 }
-.bnavbar li{
-    margin:0 20px;
+
+.bnavbar li {
+    margin: 0 20px;
 }
 
 
@@ -120,15 +134,16 @@ nav .bnavbar{
 
 
 
-.main{
+.main {
     margin: 50px 7%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    
+
 }
-.main .fbanner{
+
+.main .fbanner {
     overflow: hidden;
     width: 49%;
     height: 48%;
@@ -137,13 +152,15 @@ nav .bnavbar{
     background-repeat: no-repeat;
 
 }
-.main .fbanner video{
+
+.main .fbanner video {
     width: 100%;
     height: 100%;
     border-radius: 20px;
     position: relative;
 }
-.mutebutton{
+
+.mutebutton {
     cursor: pointer;
     position: absolute;
     top: 20px;
@@ -158,12 +175,13 @@ nav .bnavbar{
     font-weight: bold;
     border: none;
 }
-figure{
+
+figure {
     position: relative;
-    
+
 }
 
-.main .fbanner figcaption{
+.main .fbanner figcaption {
     position: absolute;
     top: 0px;
     /* background-color: red; */
@@ -178,11 +196,12 @@ figure{
     font-size: 1.2rem;
 
 }
-.fbanner span{
+
+.fbanner span {
     color: #ff9b3d;
 }
 
-.main .fbanner figcaption .buynow{
+.main .fbanner figcaption .buynow {
     background-color: black;
     width: 100px;
     height: 40px;
@@ -197,35 +216,43 @@ figure{
     width: 50;
 } */
 
-.banners{
+.banners {
     width: 48%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 
 }
-.firstimg, .twoimg, .three, .four{
+
+.firstimg,
+.twoimg,
+.three,
+.four {
     width: 48%;
     height: 48%;
-    
+
 }
-.banners img{
+
+.banners img {
     border-radius: 20px;
     width: 100%;
     height: 100%;
 }
-.banners figure{
+
+.banners figure {
     position: relative;
 
 }
-.banners figcaption{
+
+.banners figcaption {
     position: absolute;
     top: 10px;
     padding: 40px 30px;
     font-size: 1rem;
 
 }
-.banners button{
+
+.banners button {
     background-color: black;
     width: 80px;
     height: 40px;
@@ -239,7 +266,7 @@ figure{
 
 
 
-.services{
+.services {
     display: flex;
     flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.05);
@@ -252,32 +279,35 @@ figure{
     padding-left: 1px; */
 
 }
-.service{
+
+.service {
     width: 300px;
     display: flex;
     height: 140px;
     align-items: center;
     /* justify-content: center; */
-    
+
 }
-.service img{
+
+.service img {
     width: 40px;
     display: flex;
     height: 40px;
     margin: 10px 30px;
-    
+
 }
 
 
 
 
-.categoryBg{
+.categoryBg {
     padding: 0 7%;
     background-color: rgba(0, 0, 0, 0.05);
     padding-bottom: 40px;
 
 }
-.category{
+
+.category {
     background-color: white;
     border-radius: 7px;
     display: flex;
@@ -286,24 +316,27 @@ figure{
     box-shadow: 1px 1px 19px 1px rgba(0, 0, 0, 0.233);
     padding: 30px 0;
     width: 100%;
-        /* overflow: auto;
+    /* overflow: auto;
     white-space: nowrap;
     padding-left: 1px; */
 }
-.category .product{
+
+.category .product {
     border-right: 1px solid rgba(0, 0, 0, 0.044);
     border-bottom: 1px solid rgba(0, 0, 0, 0.044);
     padding: 30px 22px;
     display: flex;
 }
-.producttext{
+
+.producttext {
     width: 200px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     cursor: pointer;
 }
-.category .product img{
+
+.category .product img {
     width: 70px;
     cursor: pointer;
 }
@@ -312,24 +345,25 @@ figure{
 
 
 
-.cardsmain{
+.cardsmain {
     padding: 0 7%;
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.cards{
+.cards {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
 }
-.cards .card{
+
+.cards .card {
     width: 200px;
     display: flex;
     height: auto;
-    object-fit:fill;
-    margin:3% 1%;
+    object-fit: fill;
+    margin: 3% 1%;
     background-color: white;
     padding: 20px;
     box-shadow: 1px 1px 19px 1px rgba(0, 0, 0, 0.093);
@@ -337,17 +371,20 @@ figure{
 
 
 }
-.cards .card img{
+
+.cards .card img {
     width: 100%;
     height: 200px;
     margin-bottom: 39px;
 
-    
+
 }
-.cards figure{
+
+.cards figure {
     width: 100%;
 }
-.cards figcaption{
+
+.cards figcaption {
     width: 100%;
 }
 
@@ -355,28 +392,32 @@ figure{
 
 
 
-.secondFeatured{
+.secondFeatured {
     width: 100%;
     display: flex;
-    padding:0 20px;
+    padding: 0 20px;
 }
-.secondFeatured .video{
+
+.secondFeatured .video {
     width: 30%;
     border-radius: 10px;
 }
-.secondFeatured video{
+
+.secondFeatured video {
     width: 100%;
     height: 300px;
     border-radius: 10px;
     background-color: black;
 
 }
-.secondFeatured .productCard{
+
+.secondFeatured .productCard {
     width: 70%;
     border-radius: 10px;
-    
+
 }
-.secondFeatured img{
+
+.secondFeatured img {
     height: 300px;
     width: 100%;
     border-radius: 10px;
@@ -385,7 +426,7 @@ figure{
 
 
 
-footer{
+footer {
     width: 100%;
     background-color: rgb(28, 28, 52);
     color: white;
@@ -394,7 +435,7 @@ footer{
     justify-content: center;
 }
 
-footer .footer{
+footer .footer {
     padding: 50px 0;
     width: 70%;
     display: flex;
@@ -402,21 +443,27 @@ footer .footer{
     justify-content: space-between;
 }
 
-footer .footer .first, .second, .third, .fourt{
+footer .footer .first,
+.second,
+.third,
+.fourt {
     /* margin: 0 10%; */
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
+    align-items: flex-start;
     margin-top: 40px;
 }
-footer ul{
+
+footer ul {
     list-style: none;
     padding-top: 20px;
 }
-footer li{
+
+footer li {
     padding: 5px 0;
 }
-footer ul i{
+
+footer ul i {
     background-color: rgb(255, 255, 255);
     color: black;
     display: flex;
@@ -429,7 +476,8 @@ footer ul i{
     font-size: 2rem;
     color: black;
 }
-.copyright{
+
+.copyright {
     background-color: rgb(0, 0, 0);
     color: white;
     display: flex;
@@ -439,122 +487,283 @@ footer ul i{
 }
 
 
+.productBg {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.prouctMain {
+    margin: 0 4%;
+    display: flex;
+    justify-content: center;
+}
+
+.fillter {
+    width: 15%;
+    height: 700px;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    margin: 24px 0;
+    border-radius: 7px;
+}
+
+.fillter .first {
+    margin-top: 40px;
+}
+
+.fillter ul {
+    margin-top: 20px;
+    list-style: none;
+    margin-bottom: 20px;
+
+}
+.fillter li{
+    cursor: pointer;
+}
+.productsPage {
+    width: 90%;
+}
+
+.productsPage h1 {
+    margin: 20px 0 0px 70px;
+}
+
+
+.products {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.products .product {
+    overflow: hidden;
+
+    width: 300px;
+    display: flex;
+    height: auto;
+    object-fit: fill;
+    margin: 0% 1%;
+    background-color: white;
+    margin-top: 30px;
+    box-shadow: 1px 1px 19px 1px rgba(0, 0, 0, 0.093);
+    border-radius: 7px;
+
+
+}
+
+.products .product img {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 39px;
+
+
+}
+
+.products .product figcaption {
+
+    padding: 0 20px 30px 20px;
+
+
+}
+
+.products figure {
+    width: 100%;
+}
+
+.products figcaption {
+    width: 100%;
+}
+
+
+.fillter h1{
+    font-size:  1.5rem;
+    margin-bottom: 16px;
+
+}
+
+
+
+
 @media (max-width:1600px) {
-    .navbar{
+    .navbar {
         margin: 0 5%;
-    
+
     }
-    .navbar .search input{
+
+    .navbar .search input {
 
         width: 400px;
         padding: 0 19px;
     }
-    .logo h1{
+
+    .logo h1 {
         width: 80px;
         margin: 0 60px;
     }
-    .navbar .fmenu ,.fav, .cart , .auth{
+
+    .navbar .fmenu,
+    .fav,
+    .cart,
+    .auth {
         font-size: 0.9rem;
-        margin:0 29px;
- 
+        margin: 0 29px;
+
     }
-    
 
 
-    .main .fbanner figcaption{
+
+    .main .fbanner figcaption {
         padding: 50px 60px;
         font-size: 1rem;
     }
-    .banners figcaption{
+
+    .banners figcaption {
 
         padding: 40px 30px;
         font-size: 0.7rem;
-    
+
     }
 }
 
 
 
 @media (max-width:1150px) {
-    .navbar{
+    .navbar {
         margin: 0 40px;
-    
+
     }
-    .navbar .search input{
+
+    .navbar .search input {
 
         width: 300px;
         padding: 0 19px;
     }
-    .logo h1{
+
+    .logo h1 {
         width: 80px;
         margin: 0 20px;
     }
-    .navbar .fmenu ,.fav, .cart , .auth{
+
+    .navbar .fmenu,
+    .fav,
+    .cart,
+    .auth {
         font-size: 0.7rem;
-        margin:0 19px;
- 
+        margin: 0 19px;
+
     }
 
-    .main .fbanner figcaption{
+    .main .fbanner figcaption {
         padding: 30px 30px;
         font-size: 0.7rem;
     }
-    .banners figcaption{
+
+    .banners figcaption {
         position: absolute;
         top: 10px;
         padding: 10px 20px;
         font-size: 0.7rem;
-    
+
     }
 }
 
 @media (max-width:858px) {
-    .navbar .search input{
+    .navbar .search input {
 
         width: 200px;
         padding: 0 19px;
     }
 
-    .cards .card{
+    .cards .card {
         width: 260px;
         display: flex;
     }
-    .secondFeatured{
+
+    .secondFeatured {
         display: none;
     }
 
-    footer .footer{
+    footer .footer {
         padding: 50px 0;
         width: 80%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
-    
+
+    .prouctMain {
+        margin: 0;
+    }
+
+    .fillter {
+        width: 100%;
+        position: absolute;
+        z-index: 100000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+
+    .productsPage {
+        width: 100%;
+    }
+
+
+    .products .product {
+        overflow: hidden;
+
+        width: 150px;
+        display: flex;
+        height: auto;
+        object-fit: fill;
+        margin: 0% 1%;
+        background-color: white;
+        margin-top: 30px;
+        box-shadow: 1px 1px 19px 1px rgba(0, 0, 0, 0.093);
+        border-radius: 7px;
+
+
+    }
+
+    .products .product img {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 39px;
+    }
 }
 
 @media (max-width:756px) {
 
-    .navbar{
+    .navbar {
         margin: 0 10px;
-    
+
     }
+
     .navbar .search {
         width: 200px;
         padding: 0 19px;
         display: none;
     }
-    .msearch{
+
+    .msearch {
         display: flex;
         justify-content: center;
         padding: 10px;
         background-color: rgb(34, 34, 65);
     }
-    .msearch input{
+
+    .msearch input {
         display: flex;
         width: 90%;
     }
-    .msearch button{
+
+    .msearch button {
         justify-content: center;
         align-items: center;
         display: flex;
@@ -562,99 +771,120 @@ footer ul i{
         cursor: pointer;
     }
 
-    .bnavbar ul{
+    .bnavbar ul {
         overflow: auto;
         white-space: nowrap;
         padding-left: 13px;
-    }  
+    }
 
-    .main{
+    .main {
         margin: 20px 10px;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        
+
     }
-    .main .fbanner{
+
+    .main .fbanner {
         overflow: hidden;
         width: 100%;
         height: 48%;
         background-size: auto 100%;
         background-repeat: no-repeat;
-    
+
     }
-    .main .fbanner figcaption{
+
+    .main .fbanner figcaption {
         padding: 60px 40px;
         font-size: 1rem;
     }
 
-    .banners{
+    .banners {
         margin-top: 3%;
         width: 100%;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-    
+
     }
-    .categoryBg{
+
+    .categoryBg {
         padding: 0 10px;
         padding-bottom: 20px;
     }
-    .category{
+
+    .category {
         /* justify-content: flex-start; */
     }
-    .category .product{
+
+    .category .product {
         border: 1px solid rgba(0, 0, 0, 0.096);
         width: 40%;
     }
-    .category .producttext{
-    font-size: 3vw;
+
+    .category .producttext {
+        font-size: 3vw;
 
     }
-    .cardsmain{
+
+    .cardsmain {
         padding: 0 2%;
         background-color: rgba(0, 0, 0, 0.05);
-    }   
+    }
 
-    .cards .card{
+    .cards .card {
         width: 270px;
         display: flex;
+    }
+
+    .products .product figcaption {
+
+        padding: 0 20px 30px 0px;
+
+
+    }
+
+    .products .product {
+        padding: 10px 10px;
+
+
     }
 
 }
 
 @media (max-width:519px) {
-    
-    .bnavbar li{
-        margin:0 10px;
+
+    .bnavbar li {
+        margin: 0 10px;
         font-size: 0.8rem;
     }
 
-    .main .fbanner figcaption{
+    .main .fbanner figcaption {
         padding: 60px 40px;
         font-size: 0.7rem;
     }
 
 
-    .service{
+    .service {
         width: 100%;
         display: flex;
         height: 100px;
         /* align-items: center; */
-        
+
     }
-    .category .product{
+
+    .category .product {
         width: 36%;
     }
 
-    .cards .card{
+    .cards .card {
         width: 170px;
-        
-    
+
+
     }
 
 
-    footer .footer{
+    footer .footer {
         padding: 50px 0;
         width: 83%;
         display: flex;
@@ -664,26 +894,33 @@ footer ul i{
 }
 
 @media (max-width:458px) {
-    .nav .fmenu span{
+    .nav .fmenu span {
         display: none;
     }
-    .navbar .fmenu ,.fav, .cart , .auth{
+
+    .navbar .fmenu,
+    .fav,
+    .cart,
+    .auth {
         font-size: 0.7rem;
-        margin:0 7px;
- 
+        margin: 0 7px;
+
     }
-    .main .fbanner figcaption{
+
+    .main .fbanner figcaption {
         padding: 30px 20px;
         font-size: 0.6rem;
     }
-    .banners figcaption{
+
+    .banners figcaption {
         position: absolute;
         top: 10px;
         padding: 10px 20px;
         font-size: 2.4vw;
-    
+
     }
-    .banners button{
+
+    .banners button {
 
         width: 60px;
         height: 25px;
@@ -691,45 +928,66 @@ footer ul i{
 
     }
 
-    .category .product img{
+    .category .product img {
         width: 40px;
     }
-    .category .product{
+
+    .category .product {
         width: 30%;
     }
-    .cards .card{
+
+    .cards .card {
         width: 130px;
-        
-    
+
+
     }
-    
+
 }
 
 
-@media (max-width:372px) 
-{
-    .cards .card{
+@media (max-width:372px) {
+    .cards .card {
         width: 120px;
-        
+
+
+    }
+    
+}
+
+@media (max-width:355px) {
+    .products .product img {
+        width: 100%;
+        margin-bottom: 39px;
+    }
+        .products .product {
+        overflow: hidden;
+    
+        width: 40%;
+        display: flex;
+        height: auto;
+        object-fit: fill;
+        margin: 0% 1%;
+        background-color: white;
+        margin-top: 30px;
+        box-shadow: 1px 1px 19px 1px rgba(0, 0, 0, 0.093);
+        border-radius: 7px;
+    
     
     }
-
 }
-@media (max-width:322px) 
-{
-    .bnavbar ul{
+
+@media (max-width:322px) {
+    .bnavbar ul {
         overflow: auto;
         white-space: nowrap;
         padding-left: 1px;
-    } 
-
-    .cards .card{
+    }
+    
+    .cards .card {
         margin: 20px;
         width: 100%;
-        
+
     }
 
 
 }
-
-
