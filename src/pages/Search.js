@@ -1,35 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 
 import tshirt1 from '../products/products/men/tshirt1.webp'
 import tshirt2 from '../products/products/men/tshirt2.webp'
 import tshirt3 from '../products/products/men/tshirt3.jpeg'
 import tshirt4 from '../products/products/men/tshirt4.webp'
-// import tshirt5 from '../products/products/men/tshirt5.webp'
-// import tshirt6 from '../products/products/men/tshirt6.jpg'
 
-
-import { useParams } from "react-router-dom";
 
 
 function Products() {
-    
-    // price range
+    const queryParameters = new URLSearchParams(window.location.search)
+    const query = queryParameters.get("search")
+    console.log(query)
     const [price, setPrice] = useState(999)
-
     const priceRange = (e) => {
         let a = document.getElementById('priceRange').value
         setPrice(a)
     }
 
-    // to acces slug
-
-    const { id } = useParams()
-    useEffect(() => {
-        console.log(id)
-    })
-
     return (
         <div className='productBg'>
+            <h1>SEarch results</h1>
             <div className="prouctMain">
                 <div className="fillter">
                     <h1>Fillter</h1>
@@ -67,7 +57,7 @@ function Products() {
                 <div className="productsPage">
                     <h1>Fashion Collection</h1>
                     <div className="products">
-                        <div className="product">
+                    <div className="product">
                             <figure>
                                 <img src={tshirt1} alt="" />
                                 <figcaption>

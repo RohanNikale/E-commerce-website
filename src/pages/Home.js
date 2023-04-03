@@ -11,7 +11,6 @@ export default function Home() {
             <Services />
             <Category/>
             <Featuredcollection/>
-            <Footer/>
         </div>
     )
 }
