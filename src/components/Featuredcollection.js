@@ -283,11 +283,6 @@ const Featuredcollection = () => {
                             </figcaption>
                         </figure>
                     </div>
-
-                </div>
-
-
-                <div className="cards">
                     <div className="card">
                         <figure>
                             <img src={tshirt1} alt="" />

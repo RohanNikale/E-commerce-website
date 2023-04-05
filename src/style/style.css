@@ -589,6 +589,59 @@ footer ul i {
 
 
 
+
+
+
+
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login .inputs{
+    
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 1px 1px 19px 1px rgba(0, 0, 0, 0.065);
+
+    padding: 30px;
+    margin: 40px;
+}
+.login h1{
+    margin-bottom: 40px;
+    text-align: center;
+}
+.login label{
+    margin-top: 20px;
+    /* height: 30px; */
+}
+.login input{
+    margin-top: 10px;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1rem;
+}
+
+input:focus{
+    outline: none;
+}
+.login input[type=submit]{
+    margin: 40px 0 20px 0;
+    background-color: #fcbb6a;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+
+}
+
+
+
 @media (max-width:1600px) {
     .navbar {
         margin: 0 5%;
@@ -669,6 +722,10 @@ footer ul i {
         padding: 10px 20px;
         font-size: 0.7rem;
 
+    }
+
+    .login .inputs{
+        width: 50%;
     }
 }
 
@@ -891,6 +948,10 @@ footer ul i {
         flex-wrap: wrap;
         justify-content: space-between;
     }
+    
+    .login .inputs{
+        width: 70%;
+    }
 }
 
 @media (max-width:458px) {
@@ -950,6 +1011,10 @@ footer ul i {
         width: 120px;
 
 
+    }
+    
+    .login .inputs{
+        width: 80%;
     }
     
 }
