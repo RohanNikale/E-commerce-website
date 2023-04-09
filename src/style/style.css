@@ -17,6 +17,10 @@
     justify-content: center;
 }
 
+nav a{
+    color: white;
+    text-decoration: none;
+}
 .navbar {
     margin: 0 7%;
     width: 100%;

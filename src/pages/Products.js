@@ -23,9 +23,9 @@ function Products() {
 
     // to acces slug
 
-    const { id } = useParams()
+    const { type } = useParams()
     useEffect(() => {
-        console.log(id)
+        console.log(type)
     })
 
     return (
