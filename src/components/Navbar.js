@@ -6,22 +6,42 @@ import wish from '../icons/wishlist.svg'
 import Cookies from 'js-cookie'
 import { useNavigate, Link } from "react-router-dom";
 
-export default function Navbar({userInfo}) {
+export default function Navbar() {
   const navigate = useNavigate();
   const [searchState, setSearch] = useState("")
   let formSubmit = (e) => {
     e.preventDefault();
-    navigate(`/search?query=hello`)
+    navigate(`/search?query=${searchState}`)
 
   }
   let search = (e) => {
     let query = e.target.value
-    console.log("helllo")
+    // console.log(query)
     setSearch(query)
 
   }
 
+  let [userData, setUserData] = useState({
+    name: 'Login'
+  })
+  useEffect(() => {
+    const token = Cookies.get('token')
+    fetch('http://localhost:8000/getuserData', {
+      method: 'POST',
+      headers: {
+        'token': token,
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((res) => {
+        return res.json()
+      })
+      .then((data) => {
+        setUserData(data)
+      })
 
+  }, [userData])
+  let ff = Cookies.get('token')
 
   return (
     <div>
@@ -37,7 +57,7 @@ export default function Navbar({userInfo}) {
 
 
             {/* ******************************************* Serach bar ***************************************************** */}
-            <form action={`/product/${searchState}`} onSubmit={formSubmit} method="get">
+            <form onSubmit={formSubmit} method="get">
               <div className="search">
                 <input type="text" onChange={search} value={searchState} placeholder='search produc here' name='search' />
                 <button type='submit'>
@@ -48,14 +68,24 @@ export default function Navbar({userInfo}) {
 
 
             <div className="fmenu">
+            {ff===undefined?
               <Link to="/login">
                 <div className="auth">
 
-                  <img src={user} alt="" />&nbsp;<span>Hello, {userInfo.name}
+                  <img src={user} alt="" />&nbsp;<span>Hello, {userData.name}
+                    <br />
+                    &nbsp;&nbsp;My account</span>
+                </div>
+              </Link>:
+              <Link to="/profile">
+                <div className="auth">
+
+                  <img src={user} alt="" />&nbsp;<span>Hello, {userData.name}
                     <br />
                     &nbsp;&nbsp;My account</span>
                 </div>
               </Link>
+              }
               <div className="cart">
                 <img src={cart} alt="" />&nbsp;<span>Cart</span>
               </div>
@@ -69,14 +99,14 @@ export default function Navbar({userInfo}) {
 
         {/* ******************************************* Serach bar ***************************************************** */}
 
-          <form action={`/product/${searchState}`} onSubmit={formSubmit} method="get">
-        <div className="msearch">
-          <input type="text" placeholder='search produc here' name='search' />
-          <button type='submit'>
-            <i className="fa-solid fa-magnifying-glass" style={{ fontSize: '17px' }}></i>
-          </button>
-        </div>
-          </form>
+        <form action={`/product/${searchState}`} onSubmit={formSubmit} method="get">
+          <div className="msearch">
+            <input type="text" placeholder='search produc here' name='search' />
+            <button type='submit'>
+              <i className="fa-solid fa-magnifying-glass" style={{ fontSize: '17px' }}></i>
+            </button>
+          </div>
+        </form>
 
 
         <div className="bnavbar">

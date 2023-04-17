@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Cookies from 'js-cookie'
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
     const navigate = useNavigate()
 
-    useEffect(() => {
-
-        let b = Cookies.get('token')
-        if (b !== undefined) {
-            navigate('/profile')
-        }
-    })
     const [signupState, setSignup] = useState({ name: '', email: '', phone: '', password: '', cpassword: '' })
 
     let handdleForm = (e) => {
