@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
 import tshirt1 from '../products/products/men/tshirt1.webp'
-import tshirt2 from '../products/products/men/tshirt2.webp'
 import tshirt3 from '../products/products/men/tshirt3.jpeg'
 import tshirt4 from '../products/products/men/tshirt4.webp'
 
@@ -11,11 +10,10 @@ function Products() {
     let [queryparam, setQuery] = useState('')
     const queryParameters = new URLSearchParams(window.location.search)
     const query = queryParameters.get("query")
-    console.log(query)
     useEffect(() => {
+        console.log(query)
         setQuery(query)
-
-        
+        console.log('hahah')
     }, [query])
 
 
@@ -25,8 +23,11 @@ function Products() {
         let a = document.getElementById('priceRange').value
         setPrice(a)
     }
+
+
+
     return (
-        <div className='productBg'>
+        <div className='productBg' key={() => { return Math.random(1, 7) }}>
             <div className="prouctMain">
                 <div className="fillter">
                     <h1>Fillter</h1>
@@ -64,7 +65,7 @@ function Products() {
                 <div className="productsPage">
                     <h1>Search results:- {queryparam}</h1>
                     <div className="products">
-                        
+
                         <div className="product" key={1}>
                             <figure>
                                 <img src={tshirt3} alt="" />
@@ -72,6 +73,38 @@ function Products() {
                                     <h4>
 
                                         {'headphones google'.slice(0, 19) + '.....'}
+                                    </h4>
+                                    <br />
+                                    <div className="rating" style={{ color: 'gold' }}>
+                                        <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
+                                    </div>
+                                    <br />
+                                    <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div className="product" key={2}>
+                            <figure>
+                                <img src={tshirt4} alt="" />
+                                <figcaption>
+                                    <h4>
+                                        {'ps5 controller'.slice(0, 19) + '.....'}
+                                    </h4>
+                                    <br />
+                                    <div className="rating" style={{ color: 'gold' }}>
+                                        <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
+                                    </div>
+                                    <br />
+                                    <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div className="product" key={2}>
+                            <figure>
+                                <img src={tshirt4} alt="" />
+                                <figcaption>
+                                    <h4>
+                                        {'ps5 controller'.slice(0, 19) + '.....'}
                                     </h4>
                                     <br />
                                     <div className="rating" style={{ color: 'gold' }}>
@@ -116,6 +149,42 @@ function Products() {
                                 </figcaption>
                             </figure>
                         </div>
+
+                        <div className="product" key={3}>
+                            <figure>
+                                <img src={tshirt1} alt="" />
+                                <figcaption>
+                                    <h4>
+
+                                        {'Apple iPhone 14 (512 GB) - Blue'.slice(0, 20) + '.....'}
+                                    </h4>
+                                    <br />
+                                    <div className="rating" style={{ color: 'gold' }}>
+                                        <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
+                                    </div>
+                                    <br />
+                                    <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div className="product" key={3}>
+                            <figure>
+                                <img src={tshirt1} alt="" />
+                                <figcaption>
+                                    <h4>
+
+                                        {'Apple iPhone 14 (512 GB) - Blue'.slice(0, 20) + '.....'}
+                                    </h4>
+                                    <br />
+                                    <div className="rating" style={{ color: 'gold' }}>
+                                        <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
+                                    </div>
+                                    <br />
+                                    <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        
 
 
                     </div>

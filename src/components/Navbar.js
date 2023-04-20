@@ -41,7 +41,7 @@ export default function Navbar() {
       })
 
   }, [userData])
-  let ff = Cookies.get('token')
+  let token = Cookies.get('token')
 
   return (
     <div>
@@ -68,11 +68,11 @@ export default function Navbar() {
 
 
             <div className="fmenu">
-            {ff===undefined?
+            {token===undefined?
               <Link to="/login">
                 <div className="auth">
 
-                  <img src={user} alt="" />&nbsp;<span>Hello, {userData.name}
+                  <img src={user} alt="" />&nbsp;<span>Hello, Login
                     <br />
                     &nbsp;&nbsp;My account</span>
                 </div>
@@ -99,9 +99,10 @@ export default function Navbar() {
 
         {/* ******************************************* Serach bar ***************************************************** */}
 
-        <form action={`/product/${searchState}`} onSubmit={formSubmit} method="get">
+        <form onSubmit={formSubmit} method="get">
           <div className="msearch">
-            <input type="text" placeholder='search produc here' name='search' />
+                <input type="text" onChange={search} value={searchState} placeholder='search produc here' name='search' />
+
             <button type='submit'>
               <i className="fa-solid fa-magnifying-glass" style={{ fontSize: '17px' }}></i>
             </button>

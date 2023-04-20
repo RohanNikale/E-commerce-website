@@ -32,9 +32,6 @@ export default function Topmain() {
                     <div className="fbanner">
                         <div className="test"></div>
                         <figure>
- {
-
- }
                                 <button onClick={soundplay} className='mutebutton'>{sound!==true?<i className="fa-solid fa-volume-high"></i>:<i className="fa-solid fa-volume-xmark"></i>}</button>
                             <video id='video' muted autoPlay loop src={video} type="video/mp4">
                             </video>
