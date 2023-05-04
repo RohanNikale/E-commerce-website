@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import { useNavigate } from "react-router-dom";
 export default function Login() {
     const [loginFormState, setLoginForm] = useState({email: '', password: ''})
-
+    const [Errormessage,setError]=useState('')
     const navigate = useNavigate()
     
     let b = Cookies.get('token')
@@ -37,19 +37,26 @@ export default function Login() {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         })
-        let token =await res.json()
+        try{
 
+            let token =await res.json()
             Cookies.set('token',token)
             navigate('/')
+        }catch{
+            setError('Invalid credatial')
+        }
+
     
     }
     return (
         <div>
+            
             <form onSubmit={login} action="" method="post">
 
                 <div className="login">
                     <div className="inputs">
                         <h1>Login</h1>
+                        <p style={{color:'red',fontweight:"899"}}>{Errormessage}</p>
                         <label htmlFor="">Email</label><input type="text"required name="email" onChange={handdleForm} value={loginFormState.email} />
                         <label htmlFor="">Password</label><input type="password"required name="password" onChange={handdleForm} value={loginFormState.password} />
                         <input type="submit" value="Login" />
