@@ -310,7 +310,10 @@ figure {
     padding-bottom: 40px;
 
 }
-
+.categoryBg a{
+    text-decoration: none;
+    color: black;
+}
 .category {
     background-color: white;
     border-radius: 7px;
