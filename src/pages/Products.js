@@ -107,7 +107,7 @@ function Products() {
                             Products.map((arr,index)=>{
                                 return <div className="product">
                             <figure>
-                                <img height={100} width={300} src={`http://localhost:8000/${arr.productImages[0].reverse().destination}/${arr.productImages[0].filename}`} alt="" />
+                                <img height={100} width={300} src={`http://localhost:8000/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
                                 <figcaption>
                                     <h4>
 
