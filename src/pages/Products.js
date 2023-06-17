@@ -6,7 +6,7 @@ import tshirt1 from '../products/products/men/tshirt1.webp'
 // import tshirt6 from '../products/products/men/tshirt6.jpg'
 
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 function Products() {
@@ -48,7 +48,6 @@ function Products() {
 
     const { type } = useParams()
     useEffect(() => {
-        console.log(type)
 
             fetch(`http://localhost:8000/getproducts/${type}`,{
                 method:'POST',
@@ -60,7 +59,7 @@ function Products() {
             }).then((data)=>{
                 setProducts(data)
             })
-            console.log(Products)
+            // console.log(Products)
 
     },[setProducts])
 
@@ -105,7 +104,8 @@ function Products() {
                     <div className="products">
                         {
                             Products.map((arr,index)=>{
-                                return <div className="product">
+                                return <Link to={`/productbuy/${arr._id}`}>
+                                <div key={index} className="product">
                             <figure>
                                 <img height={100} width={300} src={`http://localhost:8000/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
                                 <figcaption>
@@ -122,6 +122,7 @@ function Products() {
                                 </figcaption>
                             </figure>
                         </div>
+                                    </Link> 
 
 })
 }

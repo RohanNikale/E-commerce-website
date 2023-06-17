@@ -16,6 +16,7 @@ import cart from './icons/cart.svg'
 import wish from './icons/wishlist.svg'
 import Cookies from 'js-cookie'
 import { useNavigate } from "react-router-dom";
+import ProuducBuypage from "./pages/ProuducBuypage";
 
 
 function App() {
@@ -146,10 +147,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:type" element={<Products />} />
+          <Route path="/productbuy/:id" element={<ProuducBuypage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/test" element={<Test />} />
         </Routes>
         <Footer />
       {/* </Router> */}

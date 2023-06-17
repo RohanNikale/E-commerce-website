@@ -1,19 +1,56 @@
 import React, { useEffect, useState } from 'react'
-
-import tshirt1 from '../products/products/men/tshirt1.webp'
-import tshirt3 from '../products/products/men/tshirt3.jpeg'
-import tshirt4 from '../products/products/men/tshirt4.webp'
+import { Link } from 'react-router-dom'
 
 
 
 function Products() {
+    const [searchProduct, setSearchProduct] = useState([{
+        "_id": {
+            "$oid": "6453594acec30a99a10e6791"
+        },
+        "user": "6431a7d25b7366bacf903546",
+        "productImages": [
+            {
+                "fieldname": "images",
+                "originalname": "81S8jikRzGL._SL1500_.jpg",
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "destination": "productimages/electrictronicsImages",
+                "filename": "fb582b8f0a95172b4140576186896c87",
+                "path": "productimages\\electrictronicsImages\\fb582b8f0a95172b4140576186896c87",
+                "size": 203353
+            },
+
+        ],
+        "title": "",
+        "productName": "",
+        "description": "",
+        "price": "",
+        "type": "",
+        "stoks": "",
+        "__v": 0
+    }])
     let [queryparam, setQuery] = useState('')
     const queryParameters = new URLSearchParams(window.location.search)
     const query = queryParameters.get("query")
     useEffect(() => {
         console.log(query)
         setQuery(query)
-        console.log('hahah')
+        fetch('http://localhost:8000/search', {
+            method: 'POST',
+            body: JSON.stringify({
+                query: query
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            }
+        }).then((res) => {
+            console.log('hahahah')
+            return res.json()
+        }).then((data) => {
+            setSearchProduct(data)
+            console.log(searchProduct)
+        })
     }, [query])
 
 
@@ -66,126 +103,30 @@ function Products() {
                     <h1>Search results:- {queryparam}</h1>
                     <div className="products">
 
-                        <div className="product" key={1}>
-                            <figure>
-                                <img src={tshirt3} alt="" />
-                                <figcaption>
-                                    <h4>
+                        {
+                            searchProduct.map((arr, index) => {
+                                return <Link to={`/productbuy/${arr._id}`}>
+                                    <div key={index} className="product">
+                                        <figure>
+                                            <img height={100} width={300} src={`http://localhost:8000/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
+                                            <figcaption>
+                                                <h4>
 
-                                        {'headphones google'.slice(0, 19) + '.....'}
-                                    </h4>
-                                    <br />
-                                    <div className="rating" style={{ color: 'gold' }}>
-                                        <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
+                                                    {arr.title.slice(0, 20) + '.....'}
+                                                </h4>
+                                                <br />
+                                                <div className="rating" style={{ color: 'gold' }}>
+                                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
+                                                </div>
+                                                <br />
+                                                <p>Price:-<span style={{ color: 'black', fontSize: '1.2rem' }}><b> ₹{arr.price} </b> </span> <strike>${90000}</strike></p>
+                                            </figcaption>
+                                        </figure>
                                     </div>
-                                    <br />
-                                    <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div className="product" key={2}>
-                            <figure>
-                                <img src={tshirt4} alt="" />
-                                <figcaption>
-                                    <h4>
-                                        {'ps5 controller'.slice(0, 19) + '.....'}
-                                    </h4>
-                                    <br />
-                                    <div className="rating" style={{ color: 'gold' }}>
-                                        <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                    </div>
-                                    <br />
-                                    <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div className="product" key={2}>
-                            <figure>
-                                <img src={tshirt4} alt="" />
-                                <figcaption>
-                                    <h4>
-                                        {'ps5 controller'.slice(0, 19) + '.....'}
-                                    </h4>
-                                    <br />
-                                    <div className="rating" style={{ color: 'gold' }}>
-                                        <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                    </div>
-                                    <br />
-                                    <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div className="product" key={2}>
-                            <figure>
-                                <img src={tshirt4} alt="" />
-                                <figcaption>
-                                    <h4>
-                                        {'ps5 controller'.slice(0, 19) + '.....'}
-                                    </h4>
-                                    <br />
-                                    <div className="rating" style={{ color: 'gold' }}>
-                                        <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                    </div>
-                                    <br />
-                                    <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                                </figcaption>
-                            </figure>
-                        </div>
+                                </Link>
 
-                        <div className="product" key={3}>
-                            <figure>
-                                <img src={tshirt1} alt="" />
-                                <figcaption>
-                                    <h4>
-
-                                        {'Apple iPhone 14 (512 GB) - Blue'.slice(0, 20) + '.....'}
-                                    </h4>
-                                    <br />
-                                    <div className="rating" style={{ color: 'gold' }}>
-                                        <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                    </div>
-                                    <br />
-                                    <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                                </figcaption>
-                            </figure>
-                        </div>
-
-                        <div className="product" key={3}>
-                            <figure>
-                                <img src={tshirt1} alt="" />
-                                <figcaption>
-                                    <h4>
-
-                                        {'Apple iPhone 14 (512 GB) - Blue'.slice(0, 20) + '.....'}
-                                    </h4>
-                                    <br />
-                                    <div className="rating" style={{ color: 'gold' }}>
-                                        <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                    </div>
-                                    <br />
-                                    <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div className="product" key={3}>
-                            <figure>
-                                <img src={tshirt1} alt="" />
-                                <figcaption>
-                                    <h4>
-
-                                        {'Apple iPhone 14 (512 GB) - Blue'.slice(0, 20) + '.....'}
-                                    </h4>
-                                    <br />
-                                    <div className="rating" style={{ color: 'gold' }}>
-                                        <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                    </div>
-                                    <br />
-                                    <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        
-
+                            })
+                        }
 
                     </div>
                 </div>
