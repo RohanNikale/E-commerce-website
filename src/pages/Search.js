@@ -105,8 +105,8 @@ function Products() {
 
                         {
                             searchProduct.map((arr, index) => {
-                                return <Link to={`/productbuy/${arr._id}`}>
-                                    <div key={index} className="product">
+                                return <div key={index} className="product">
+                                        <Link to={`/productbuy/${arr._id}`}>
                                         <figure>
                                             <img height={100} width={300} src={`http://localhost:8000/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
                                             <figcaption>
@@ -122,8 +122,8 @@ function Products() {
                                                 <p>Price:-<span style={{ color: 'black', fontSize: '1.2rem' }}><b> ₹{arr.price} </b> </span> <strike>${90000}</strike></p>
                                             </figcaption>
                                         </figure>
-                                    </div>
                                 </Link>
+                                    </div>
 
                             })
                         }

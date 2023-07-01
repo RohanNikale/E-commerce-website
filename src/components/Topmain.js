@@ -4,6 +4,8 @@ import three from '../images/catbanner-03.jpg'
 import four from '../images/catbanner-04.jpg'
 import fashion from '../images/fashion.jpg'
 import video from '../images/video.mp4'
+
+import { Link } from 'react-router-dom'
 export default function Topmain() {
 
     let [sound,setSound]=useState(true)
@@ -59,7 +61,10 @@ export default function Topmain() {
                                 <figcaption><h2>Laptop's</h2>
                                     <p>Starting from Rs.29,000 </p>
                                     <br />
+                                    <Link to="/product/laptopcomputer">
+
                                     <button>Explore</button>
+                                    </Link>
                                 </figcaption>
                             </figure>
                         </div>
@@ -69,17 +74,22 @@ export default function Topmain() {
                                 <figcaption><h2>Men's & Woman <br /> Fashion</h2>
                                     <p>Starting from Rs.999 </p>
                                     <br />
+                                    <Link to="/product/fashion">
                                     <button>Explore</button>
+                                    </Link>
                                 </figcaption>
                             </figure>
                         </div>
                         <div className="three">
                             <figure>
                                 <img src={three} alt="" />
-                                <figcaption><h2>Tablet's</h2>
+                                <figcaption><h2>Mobile & Tablet's</h2>
                                     <p>Starting from Rs.12,999 </p>
                                     <br />
+                                    <Link to="/product/mobiletablet">
+
                                     <button>Explore</button>
+                                    </Link>
                                 </figcaption>
                             </figure>
                         </div>
@@ -89,7 +99,9 @@ export default function Topmain() {
                                 <figcaption><h2>Headphone's</h2>
                                     <p>Starting from Rs.999 </p>
                                     <br />
+                                    <Link to="/product/headphoneairbud">
                                     <button>Explore</button>
+                                    </Link>
                                 </figcaption>
                             </figure>
                         </div>

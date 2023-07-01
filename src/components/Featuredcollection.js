@@ -1,33 +1,62 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 
 
 
 
-import earbuds from '../products/category/earbuds.jpg'
-import gaming from '../products/category/gaming.jpg'
-import home from '../products/category/home.jpg'
-import phone from '../products/category/phone.jpg'
-import speaker from '../products/category/speaker.jpg'
-import headphone from '../products/category/headphone.jpg'
+
+
 import video from '../images/applewatch.mp4'
 // import applewatchbanner from '../images/applewatchbanner.jpg'
 import applewatch from '../images/applewatch.jpg'
 
 
-
-import tshirt1 from '../products/products/men/tshirt1.webp'
-import tshirt2 from '../products/products/men/tshirt2.webp'
-import tshirt3 from '../products/products/men/tshirt3.jpeg'
-import tshirt4 from '../products/products/men/tshirt4.webp'
-import tshirt5 from '../products/products/men/tshirt5.webp'
-import tshirt6 from '../products/products/men/tshirt6.jpg'
-
-import banner from '../products/products/men/banner.webp'
+import { Link } from 'react-router-dom'
 
 
 const Featuredcollection = () => {
+    const [Products,setProducts]=useState([
+    
+        {
+            "_id": "649ea7d087c65f6ec485025e",
+            "user": "6431a7d25b7366bacf903546",
+            "productImages": [
+                {
+                    "fieldname": "images",
+                    "originalname": "home.10785ee964537a7dfe31.jpg",
+                    "encoding": "7bit",
+                    "mimetype": "image/jpeg",
+                    "destination": "productimages/homeappliancesImages",
+                    "filename": "783be6303cd0010aad74795e37100f2f",
+                    "path": "productimages\\homeappliancesImages\\783be6303cd0010aad74795e37100f2f",
+                    "size": 105854
+                }
+            ],
+            "title": "KENT Crisp Pop Up 750 W Pop Up Toaster  (Blue)",
+            "productName": "bread toster",
+            "description": "Product Description\nFamily breakfast each morning is quick and effortless with the easy-to-use Kent Crisp Pop-up Toaster. Its wide slots allow the users to toast two thick slices of bread and enjoy a wholesome breakfast. Also, this pop-up toaster’s variable electronic timing control with six heating modes lets the user pick the desired crispiness while toasting. Furthermore, you can also reheat the cold toast without burning it in this appliance.\n\nSix Heating Modes\nThis pop-up toaster is integrated with variable electronic timing control with six heating modes that let you and your family members enjoy the kind of crispiness they prefer. So, they can pick from light golden brown to deep dark toast.\n\n\nReheat and Mid Cycle Stop Function\nIts reheat function allows the user to warm up cold toast without going through the entire toasting process. Also, the cancel function lets you halt the toasting process in between if you change your mind.",
+            "price": "1,299",
+            "type": "homeappliances",
+            "featured": true,
+            "stoks": "33",
+            "__v": 0
+        }
+    ])
+    useEffect(()=>{
+
+        fetch(`http://localhost:8000/getfeaturedproduct`,{
+            method:'POST',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            }
+        }).then((res)=>{
+            return res.json()
+        }).then((data)=>{
+            setProducts(data)
+        })
+        console.log(Products)
+    },[])
     return (
         <div>
             <div className="cardsmain">
@@ -35,109 +64,30 @@ const Featuredcollection = () => {
                 <br />
                 <h1>Featured Collection</h1>
                 <br />
-                <div className="cards">
-                    <div className="card">
+
+                    <div className="cards">
+                {
+                Products.map((arr,index)=>{
+                    return  <div className="card" key={index}>
+                    <Link to={`/productbuy/${arr._id}`}>
                         <figure>
-                            <img src={phone} alt="" />
+                            <img src={`http://localhost:8000/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
                             <figcaption>
                                 <h4>
 
-                                    {'Apple iPhone 14 (512 GB) - Blue'.slice(0, 20) + '.....'}
+                                    {arr.title.slice(0, 20) + '.....'}
                                 </h4>
                                 <br />
                                 <div className="rating" style={{ color: 'gold' }}>
                                     <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
                                 </div>
                                 <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
+                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b>₹{arr.price} </b> </span> <strike>${'890'}</strike></p>
                             </figcaption>
                         </figure>
+                </Link> 
                     </div>
-                    <div className="card">
-                        <figure>
-                            <img src={earbuds} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'Noise air pod'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={headphone} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'headphones google'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={gaming} alt="" />
-                            <figcaption>
-                                <h4>
-                                    {'ps5 controller'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={speaker} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'boat blottoth speaker'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={home} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'home applinces'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-
+                })}
                 </div>
                 <div className="secondFeatured">
                     <div className="video">
@@ -152,242 +102,6 @@ const Featuredcollection = () => {
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div className="cardsmain">
-                <br />
-                <br />
-                <br />
-
-                <br />
-                <h1>Fashion Collection</h1>
-                <br />
-
-                <div className="banenr" style={{ width: '100%' }}>
-                    <img src={banner} alt="" style={{ width: '100%' }} />
-                </div>
-
-
-                <div className="cards">
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt1} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'Apple iPhone 14 (512 GB) - Blue'.slice(0, 20) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt2} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'Noise air pod'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt3} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'headphones google'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt4} alt="" />
-                            <figcaption>
-                                <h4>
-                                    {'ps5 controller'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt5} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'boat blottoth speaker'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt6} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'home applinces'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt1} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'Apple iPhone 14 (512 GB) - Blue'.slice(0, 20) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt2} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'Noise air pod'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt3} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'headphones google'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt4} alt="" />
-                            <figcaption>
-                                <h4>
-                                    {'ps5 controller'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt5} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'boat blottoth speaker'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div className="card">
-                        <figure>
-                            <img src={tshirt6} alt="" />
-                            <figcaption>
-                                <h4>
-
-                                    {'home applinces'.slice(0, 19) + '.....'}
-                                </h4>
-                                <br />
-                                <div className="rating" style={{ color: 'gold' }}>
-                                    <i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i>
-                                </div>
-                                <br />
-                                <p>Price:-<span style={{ color: 'red', fontSize: '1.2rem' }}><b> ${'348'} </b> </span> <strike>${'890'}</strike></p>
-                            </figcaption>
-                        </figure>
-                    </div>
-
-                </div>
-            </div>
-            
         </div>
     )
 }

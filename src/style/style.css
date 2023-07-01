@@ -356,6 +356,11 @@ figure {
     padding: 0 7%;
     background-color: rgba(0, 0, 0, 0.05);
 }
+.cardsmain a{
+    color: black;
+    text-decoration: none;
+
+}
 
 .cards {
     width: 100%;
@@ -569,7 +574,12 @@ footer ul i {
 
 
 }
+.products a{
+    color: black;
+    text-decoration: none;
 
+
+}
 .products .product figcaption {
 
     padding: 0 20px 30px 20px;
