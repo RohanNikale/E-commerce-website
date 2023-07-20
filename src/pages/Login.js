@@ -2,6 +2,9 @@ import React,{useEffect,useState} from 'react'
 import Cookies from 'js-cookie'
 import { useNavigate } from "react-router-dom";
 export default function Login() {
+    let API_URL='https://drab-gold-shark-boot.cyclic.app'
+
+
     const [loginFormState, setLoginForm] = useState({email: '', password: ''})
     const [Errormessage,setError]=useState('')
     const navigate = useNavigate()
@@ -28,7 +31,7 @@ export default function Login() {
         e.preventDefault();
 
         // Using Fetch API
-       const res =await fetch('http://localhost:8000/login', {
+       const res =await fetch(`${API_URL}/login`, {
             method: 'POST',
             body: JSON.stringify({
                 loginFormState

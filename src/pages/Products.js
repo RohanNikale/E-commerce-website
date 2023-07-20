@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-import tshirt1 from '../products/products/men/tshirt1.webp'
-
-// import tshirt5 from '../products/products/men/tshirt5.webp'
-// import tshirt6 from '../products/products/men/tshirt6.jpg'
-
-
 import { Link, useParams } from "react-router-dom";
 
 
 function Products() {
+    let API_URL='https://drab-gold-shark-boot.cyclic.app'
 
     // price range
     const [price, setPrice] = useState(999)
@@ -49,7 +44,7 @@ function Products() {
     const { type } = useParams()
     useEffect(() => {
 
-        fetch(`http://localhost:8000/getproducts/${type}`, {
+        fetch(`${API_URL}/getproducts/${type}`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -59,9 +54,8 @@ function Products() {
         }).then((data) => {
             setProducts(data)
         })
-        // console.log(Products)
 
-    }, [setProducts])
+    }, [type])
 
     return (
         <div className='productBg'>
@@ -107,7 +101,7 @@ function Products() {
                                 return <div key={index} className="product">
                                     <Link to={`/productbuy/${arr._id}`}>
                                         <figure>
-                                            <img height={100} width={300} src={`http://localhost:8000/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
+                                            <img height={100} width={300} src={`${API_URL}/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
                                             <figcaption>
                                                 <h4>
 

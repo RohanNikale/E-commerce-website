@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 
 
 function Products() {
+    let API_URL='https://drab-gold-shark-boot.cyclic.app'
+    
     const [searchProduct, setSearchProduct] = useState([{
         "_id": {
             "$oid": "6453594acec30a99a10e6791"
@@ -36,7 +38,7 @@ function Products() {
     useEffect(() => {
         console.log(query)
         setQuery(query)
-        fetch('http://localhost:8000/search', {
+        fetch(`${API_URL}/search`, {
             method: 'POST',
             body: JSON.stringify({
                 query: query
@@ -49,7 +51,6 @@ function Products() {
             return res.json()
         }).then((data) => {
             setSearchProduct(data)
-            console.log(searchProduct)
         })
     }, [query])
 
@@ -108,7 +109,7 @@ function Products() {
                                 return <div key={index} className="product">
                                         <Link to={`/productbuy/${arr._id}`}>
                                         <figure>
-                                            <img height={100} width={300} src={`http://localhost:8000/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
+                                            <img height={100} width={300} src={`${API_URL}/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
                                             <figcaption>
                                                 <h4>
 

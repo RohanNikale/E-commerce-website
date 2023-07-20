@@ -16,6 +16,11 @@ import { Link } from 'react-router-dom'
 
 
 const Featuredcollection = () => {
+    let API_URL='https://drab-gold-shark-boot.cyclic.app'
+
+
+
+
     const [Products,setProducts]=useState([
     
         {
@@ -45,7 +50,7 @@ const Featuredcollection = () => {
     ])
     useEffect(()=>{
 
-        fetch(`http://localhost:8000/getfeaturedproduct`,{
+        fetch(`${API_URL}/getfeaturedproduct`,{
             method:'POST',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -55,7 +60,6 @@ const Featuredcollection = () => {
         }).then((data)=>{
             setProducts(data)
         })
-        console.log(Products)
     },[])
     return (
         <div>
@@ -71,7 +75,7 @@ const Featuredcollection = () => {
                     return  <div className="card" key={index}>
                     <Link to={`/productbuy/${arr._id}`}>
                         <figure>
-                            <img src={`http://localhost:8000/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
+                            <img src={`${API_URL}/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
                             <figcaption>
                                 <h4>
 

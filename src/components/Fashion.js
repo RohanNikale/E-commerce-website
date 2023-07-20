@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react'
 
 
 
-import tshirt5 from '../products/products/men/tshirt5.webp'
 
 import banner from '../products/products/men/banner.webp'
 import { Link } from 'react-router-dom'
 
 export default function Fashion() {
+    
+    
+    
     const [Products, setProducts] = useState([{
         "_id": "6453594acec30a99a10e6791",
         "user": "6431a7d25b7366bacf903546",
@@ -23,7 +25,7 @@ export default function Fashion() {
                 "path": "productimages\\electrictronicsImages\\fb582b8f0a95172b4140576186896c87",
                 "size": 203353
             },
-
+            
         ],
         "title": "",
         "productName": "",
@@ -33,8 +35,9 @@ export default function Fashion() {
         "stoks": "",
         "__v": 0
     }])
+    let API_URL='https://drab-gold-shark-boot.cyclic.app'
     useEffect(() => {
-        fetch(`http://localhost:8000/getproducts/fashion`, {
+        fetch(`${API_URL}/getproducts/fashion`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -44,8 +47,7 @@ export default function Fashion() {
         }).then((data) => {
             setProducts(data)
         })
-        console.log(Products)
-    },[])
+    },[API_URL])
     return (
         <div>
             <div className="cardsmain">
@@ -68,7 +70,7 @@ export default function Fashion() {
 
                             <div className="card">
                                 <figure>
-                                    <img src={`http://localhost:8000/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
+                                    <img src={`${API_URL}/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
                                     <figcaption>
                                         <h4>
 

@@ -14,9 +14,10 @@ export default function Login() {
 
     let signUp = async (e) => {
         e.preventDefault();
-
+        
         // Using Fetch API
-        const res = await fetch('http://localhost:8000/signup', {
+        let API_URL='https://drab-gold-shark-boot.cyclic.app'
+        const res = await fetch(`${API_URL}/signup`, {
             method: 'POST',
             body: JSON.stringify({
                 signupState

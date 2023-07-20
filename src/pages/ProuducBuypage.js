@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import img from '../images/applewatch.png'
-import Featuredcollection from '../components/Featuredcollection';
 import { useParams } from 'react-router-dom';
 
 
@@ -15,9 +13,7 @@ import home from '../products/category/home.jpg'
 import phone from '../products/category/phone.jpg'
 import speaker from '../products/category/speaker.jpg'
 import headphone from '../products/category/headphone.jpg'
-import video from '../images/applewatch.mp4'
 // import applewatchbanner from '../images/applewatchbanner.jpg'
-import applewatch from '../images/applewatch.jpg'
 
 
 
@@ -25,6 +21,10 @@ import applewatch from '../images/applewatch.jpg'
 
 
 function ProuducBuypage() {
+  let API_URL='https://drab-gold-shark-boot.cyclic.app'
+
+
+
   const [productData, setProductData] = useState({
     user: '6431a7d25b7366bacf903546',
     productImages: [
@@ -51,7 +51,7 @@ function ProuducBuypage() {
   })
   const { id } = useParams()
   useEffect(() => {
-    fetch(`http://localhost:8000/getproductinfo`, {
+    fetch(`${API_URL}/getproductinfo`, {
       method: 'POST',
       body: JSON.stringify({
         productId: id
@@ -73,7 +73,7 @@ function ProuducBuypage() {
         <div className="uperproduct">
 
           <div className="productimage">
-            <img src={`http://localhost:8000/${productData.productImages[0].destination}/${productData.productImages[0].filename}`} alt="" />
+            <img src={`${API_URL}/${productData.productImages[0].destination}/${productData.productImages[0].filename}`} alt="" />
           </div>
           <div className="productdata">
             <div className="title">

@@ -7,26 +7,31 @@ import Cookies from 'js-cookie'
 import { useNavigate, Link } from "react-router-dom";
 
 export default function Navbar() {
+  
+  
   const navigate = useNavigate();
   const [searchState, setSearch] = useState("")
   let formSubmit = (e) => {
     e.preventDefault();
     navigate(`/search?query=${searchState}`)
-
+    
   }
   let search = (e) => {
     let query = e.target.value
     // console.log(query)
     setSearch(query)
-
+    
   }
-
+  
   let [userData, setUserData] = useState({
     name: 'Login'
   })
+  let API_URL='https://drab-gold-shark-boot.cyclic.app'
   useEffect(() => {
+
+
     const token = Cookies.get('token')
-    fetch('http://localhost:8000/getuserData', {
+    fetch(`https://drab-gold-shark-boot.cyclic.app/getuserData`, {
       method: 'POST',
       headers: {
         'token': token,
@@ -40,7 +45,7 @@ export default function Navbar() {
         setUserData(data)
       })
 
-  }, [userData])
+  }, [API_URL])
   let token = Cookies.get('token')
 
   return (

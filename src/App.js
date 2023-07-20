@@ -1,6 +1,5 @@
 import Footer from "./components/Footer";
-// import Navbar from "./components/Navbar";
-import Test from "./components/Test";
+// import Test from "./components/Test";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -39,7 +38,7 @@ function App() {
   })
   const token = Cookies.get('token')
   useEffect(() => {
-    fetch('http://localhost:8000/getuserData', {
+    fetch('https://drab-gold-shark-boot.cyclic.app/getuserData', {
       method: 'POST',
       headers: {
         'token': token,
