@@ -17,7 +17,7 @@ export default function Fashion() {
         "productImages": [
             {
                 "fieldname": "images",
-                "originalname": "81S8jikRzGL._SL1500_.jpg",
+                "originalname": "81S8jikbv0zGL._SL1500_.jpg",
                 "encoding": "7bit",
                 "mimetype": "image/jpeg",
                 "destination": "productimages/electrictronicsImages",

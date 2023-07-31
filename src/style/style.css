@@ -717,6 +717,55 @@ input:focus{
 
 
 
+
+
+
+
+.profile-main{
+    margin-top: 30px;
+}
+.profile img{
+    width: 250px;
+}
+.profile .userData{
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.profile input, textarea{
+    border: 1px solid rgba(0, 0, 0, 0.284);
+    border-radius: 10px;
+    font-size: 1.2rem;
+    width: 500px;
+    padding: 10px;
+    background-color: white;
+    margin: 10px 0px;
+}
+
+.profile .buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.profile button{
+    background-color: #FA8900;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    margin: 20px 10px;
+    color: white;
+    font-size: 1rem;
+}
+
+
+
+
+
+
+
 @media (max-width:1600px) {
     .navbar {
         margin: 0 5%;
@@ -1001,6 +1050,12 @@ input:focus{
 
     }
 
+
+
+    .profile input, textarea{
+        width: 350px;
+    }
+
 }
 
 @media (max-width:519px) {
@@ -1096,6 +1151,9 @@ input:focus{
 
 
     }
+    .profile input, textarea{
+        width: 300px;
+    }
 
 }
 
@@ -1109,6 +1167,9 @@ input:focus{
     
     .login .inputs{
         width: 80%;
+    }
+    .profile input, textarea{
+        width: 200px;
     }
     
 }
@@ -1147,6 +1208,12 @@ input:focus{
         width: 100%;
 
     }
+    .profile input, textarea{
+        width: 150px;
+    }
 
+    .profile img{
+        width: 200px;
+    }
 
 }

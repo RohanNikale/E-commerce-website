@@ -16,6 +16,7 @@ import wish from './icons/wishlist.svg'
 import Cookies from 'js-cookie'
 import { useNavigate } from "react-router-dom";
 import ProuducBuypage from "./pages/ProuducBuypage";
+import Profile from "./pages/Profile";
 
 
 function App() {
@@ -145,6 +146,7 @@ function App() {
     </div>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="/product/:type" element={<Products />} />
           <Route path="/productbuy/:id" element={<ProuducBuypage />} />
           <Route path="/search" element={<Search />} />
