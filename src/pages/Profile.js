@@ -1,44 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import img from '../images/profile.jpg';
-import Cookies from 'js-cookie';
-
-const API_URL = 'https://drab-gold-shark-boot.cyclic.app';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 function Profile() {
-  const [userData, setUserData] = useState({
-    name: 'Login',
-    email: 'abc@xyz.com',
-    phone: 902140514,
-    address: 'B-5, Sector -67, Noida Uttar Pradesh, India',
-  });
+  const { logout,userData,setUserData } = useAuth();
+
+  const navigate = useNavigate()
 
   const [disable, setDisable] = useState(true);
 
   useEffect(() => {
-    const token = Cookies.get('token');
 
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch(`${API_URL}/getuserData`, {
-          method: 'POST',
-          headers: {
-            'token': token,
-            'Content-type': 'application/json; charset=UTF-8',
-          },
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          setUserData(data);
-        } else {
-          console.error('Failed to fetch user data.');
-        }
-      } catch (error) {
-        console.error('An error occurred while fetching user data.', error);
-      }
-    };
-
-    fetchUserData();
   }, []);
 
   const handleEdit = (e) => {
@@ -48,6 +21,10 @@ function Profile() {
   const toggleEdit = () => {
     setDisable(!disable);
   };
+  const logOut=()=>{
+    logout(false)
+    navigate('/login')
+  }
 
   return (
     <div>
@@ -96,7 +73,7 @@ function Profile() {
           </div>
           <div className="buttons">
             <button onClick={toggleEdit}>Edit</button>
-            <button>Done</button>
+            <button onClick={logOut}>Log Out</button>
           </div>
         </div>
       </div>

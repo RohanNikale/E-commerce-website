@@ -1,25 +1,18 @@
-import React,{useEffect,useState} from 'react'
+import React, { useState } from 'react'
 import Cookies from 'js-cookie'
 import { useNavigate } from "react-router-dom";
+
+import { useAuth } from '../AuthContext';
+
+
 export default function Login() {
-    let API_URL='https://drab-gold-shark-boot.cyclic.app'
+    let API_URL = 'http://localhost:8000/user'
+    const { login } = useAuth();
+  
 
-
-    const [loginFormState, setLoginForm] = useState({email: '', password: ''})
-    const [Errormessage,setError]=useState('')
+    const [loginFormState, setLoginForm] = useState({ email: '', password: '' })
+    const [Errormessage, setError] = useState('')
     const navigate = useNavigate()
-    
-    let b = Cookies.get('token')
-    if (b !== undefined) {
-        navigate('/')
-    }
-    useEffect(() => {
-        
-        let b = Cookies.get('token')
-        if (b !== undefined) {
-            navigate('/')
-        }
-    })
 
 
     let handdleForm = (e) => {
@@ -27,41 +20,47 @@ export default function Login() {
 
     }
 
-    let login = async(e) => {
+    let LogIn = async (e) => {
         e.preventDefault();
-
+        console.log(loginFormState)
         // Using Fetch API
-       const res =await fetch(`${API_URL}/login`, {
+        const res = await fetch(`${API_URL}/login`, {
             method: 'POST',
-            body: JSON.stringify({
-                loginFormState
-            }),
+            body: JSON.stringify(loginFormState),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         })
-        try{
+        try {
 
-            let token =await res.json()
-            Cookies.set('token',token)
-            navigate('/')
-        }catch{
+            let response = await res.json()
+            console.log(response.token)
+            if (!response.success) {
+                setError('Invalid credatial')
+
+            }
+            else {
+                Cookies.set('token', response.token)
+                login()
+                navigate('/')
+            }
+        } catch (error) {
             setError('Invalid credatial')
         }
 
-    
+
     }
     return (
         <div>
-            
-            <form onSubmit={login} action="" method="post">
+
+            <form onSubmit={LogIn} action="" method="post">
 
                 <div className="login">
                     <div className="inputs">
                         <h1>Login</h1>
-                        <p style={{color:'red',fontweight:"899"}}>{Errormessage}</p>
-                        <label htmlFor="">Email</label><input type="text"required name="email" onChange={handdleForm} value={loginFormState.email} />
-                        <label htmlFor="">Password</label><input type="password"required name="password" onChange={handdleForm} value={loginFormState.password} />
+                        <p style={{ color: 'red', fontweight: "899" }}>{Errormessage}</p>
+                        <label htmlFor="">Email</label><input type="text" required name="email" onChange={handdleForm} value={loginFormState.email} />
+                        <label htmlFor="">Password</label><input type="password" required name="password" onChange={handdleForm} value={loginFormState.password} />
                         <input type="submit" value="Login" />
                     </div>
                 </div>
