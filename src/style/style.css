@@ -691,7 +691,7 @@ input:focus{
     width: 45%;
 }
 .productimage img{
-    width: 100%;
+    width: 70%;
 }
 
 .productdata{
@@ -1011,10 +1011,6 @@ input:focus{
     .categoryBg {
         padding: 0 10px;
         padding-bottom: 20px;
-    }
-
-    .category {
-        /* justify-content: flex-start; */
     }
 
     .category .product {
