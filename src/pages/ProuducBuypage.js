@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useAuth } from '../AuthContext'
+import loader from '../icons/loader.gif'
 
-const API_URL = 'https://drab-gold-shark-boot.cyclic.app';
 
 function ProuducBuypage() {
+  const { API_URL } = useAuth()
+  const [Loading, setLoading] = useState(true);
+
   const { id } = useParams();
   const [productData, setProductData] = useState({
     user: '6431a7d25b7366bacf903546',
@@ -30,27 +34,34 @@ function ProuducBuypage() {
   });
 
   useEffect(() => {
-    fetch(`${API_URL}/getproductinfo`, {
-      method: 'POST',
-      body: JSON.stringify({
-        productId: id,
-      }),
+    fetch(`${API_URL}/product/getproductinfo/${id}`, {
+      method: 'GET',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
       .then((res) => res.json())
-      .then((data) => setProductData(data));
+      .then((data) => {setProductData(data.product)
+        setLoading(false)
+      });
   }, [id]);
 
   return (
     <div className="productpage">
+            {Loading ? (
+        <div className="loader">
+          <img src={loader} alt='loader'/>
+        </div>
+      ) : (
       <div className="uperproduct">
+
         <div className="productimage">
-          <img
-            src={`${API_URL}/${productData.productImages[0].destination}/${productData.productImages[0].filename}`}
-            alt=""
-          />
+          <center>
+            <img
+              src={`${API_URL}/product/${productData.productImages[0].destination}/${productData.productImages[0].filename}`}
+              alt=""
+            />
+          </center>
         </div>
         <div className="productdata">
           <div className="title">
@@ -69,7 +80,7 @@ function ProuducBuypage() {
             {productData.description}
           </div>
         </div>
-      </div>
+      </div>)}
     </div>
   );
 }

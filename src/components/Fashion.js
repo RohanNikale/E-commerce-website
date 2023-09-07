@@ -1,51 +1,26 @@
 import React, { useEffect, useState } from 'react'
-
-
-
+import { useAuth } from '../AuthContext'
 
 
 import banner from '../products/products/men/banner.webp'
 import { Link } from 'react-router-dom'
 
 export default function Fashion() {
+    const {API_URL}=useAuth()
     
     
     
-    const [Products, setProducts] = useState([{
-        "_id": "6453594acec30a99a10e6791",
-        "user": "6431a7d25b7366bacf903546",
-        "productImages": [
-            {
-                "fieldname": "images",
-                "originalname": "81S8jikbv0zGL._SL1500_.jpg",
-                "encoding": "7bit",
-                "mimetype": "image/jpeg",
-                "destination": "productimages/electrictronicsImages",
-                "filename": "fb582b8f0a95172b4140576186896c87",
-                "path": "productimages\\electrictronicsImages\\fb582b8f0a95172b4140576186896c87",
-                "size": 203353
-            },
-            
-        ],
-        "title": "",
-        "productName": "",
-        "description": "",
-        "price": "",
-        "type": "",
-        "stoks": "",
-        "__v": 0
-    }])
-    let API_URL='https://drab-gold-shark-boot.cyclic.app'
+    const [Products, setProducts] = useState([])
     useEffect(() => {
-        fetch(`${API_URL}/getproducts/fashion`, {
-            method: 'POST',
+        fetch(`${API_URL}/product/getproductsList/fashion`, {
+            method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             }
         }).then((res) => {
             return res.json()
         }).then((data) => {
-            setProducts(data)
+            setProducts(data.productlist)
         })
     },[API_URL])
     return (
@@ -70,7 +45,7 @@ export default function Fashion() {
 
                             <div className="card">
                                 <figure>
-                                    <img src={`${API_URL}/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
+                                    <img src={`${API_URL}/product/${arr.productImages[0].destination}/${arr.productImages[0].filename}`} alt="" />
                                     <figcaption>
                                         <h4>
 

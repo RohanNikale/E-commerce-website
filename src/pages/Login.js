@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import Cookies from 'js-cookie'
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 import { useAuth } from '../AuthContext';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
-    let API_URL = 'http://localhost:8000/user'
-    const { login } = useAuth();
+    const { login,API_URL } = useAuth();
   
 
     const [loginFormState, setLoginForm] = useState({ email: '', password: '' })
-    const [Errormessage, setError] = useState('')
     const navigate = useNavigate()
 
 
@@ -19,12 +18,11 @@ export default function Login() {
         setLoginForm({ ...loginFormState, [e.target.name]: e.target.value })
 
     }
-
+    
     let LogIn = async (e) => {
         e.preventDefault();
-        console.log(loginFormState)
         // Using Fetch API
-        const res = await fetch(`${API_URL}/login`, {
+        const res = await fetch(`${API_URL}/user/login`, {
             method: 'POST',
             body: JSON.stringify(loginFormState),
             headers: {
@@ -34,34 +32,44 @@ export default function Login() {
         try {
 
             let response = await res.json()
-            console.log(response.token)
             if (!response.success) {
-                setError('Invalid credatial')
-
+                toast.error("Invalid credatil !", {
+                    position: toast.POSITION.TOP_CENTER
+                });
+                
             }
             else {
                 Cookies.set('token', response.token)
+                toast.error("Login Succesfuly", {
+                    position: toast.POSITION.TOP_CENTER
+                });
                 login()
                 navigate('/')
             }
         } catch (error) {
-            setError('Invalid credatial')
+            toast.error("Invalid credatil !", {
+                position: toast.POSITION.TOP_CENTER
+              });
         }
-
-
+        
+        
     }
+    
     return (
         <div>
-
+<ToastContainer />
             <form onSubmit={LogIn} action="" method="post">
 
                 <div className="login">
                     <div className="inputs">
                         <h1>Login</h1>
-                        <p style={{ color: 'red', fontweight: "899" }}>{Errormessage}</p>
                         <label htmlFor="">Email</label><input type="text" required name="email" onChange={handdleForm} value={loginFormState.email} />
                         <label htmlFor="">Password</label><input type="password" required name="password" onChange={handdleForm} value={loginFormState.password} />
                         <input type="submit" value="Login" />
+                        
+                        <b style={{textAlign:'center',marginTop:'10px'}}>
+                           I don't have Account? <Link to='/signup' style={{color:'#2176ff'}}>Sign Up</Link>
+                            </b>
                     </div>
                 </div>
             </form>

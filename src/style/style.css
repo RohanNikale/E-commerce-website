@@ -4,6 +4,21 @@
     padding: 0;
     margin: 0;
     /* overflow-x: hidden; */
+    
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+    width: 100vw;
+    background: white !important;
+    align-items: center;
+}
+
+.loader img {
+    height: 197px;
+    width: 197px;
 }
 
 .nav {
@@ -17,10 +32,11 @@
     justify-content: center;
 }
 
-nav a{
+nav a {
     color: white;
     text-decoration: none;
 }
+
 .navbar {
     margin: 0 7%;
     width: 100%;
@@ -100,7 +116,7 @@ nav a{
 
 .navbar .fmenu,
 .fav,
-.cart,
+.cart-icon,
 .auth {
     font-size: 0.9rem;
     display: flex;
@@ -310,10 +326,12 @@ figure {
     padding-bottom: 40px;
 
 }
-.categoryBg a{
+
+.categoryBg a {
     text-decoration: none;
     color: black;
 }
+
 .category {
     background-color: white;
     border-radius: 7px;
@@ -356,7 +374,8 @@ figure {
     padding: 0 7%;
     background-color: rgba(0, 0, 0, 0.05);
 }
-.cardsmain a{
+
+.cardsmain a {
     color: black;
     text-decoration: none;
 
@@ -509,6 +528,7 @@ footer ul i {
 }
 
 .fillter {
+    display: none;
     width: 15%;
     height: 700px;
     background-color: rgb(255, 255, 255);
@@ -531,15 +551,18 @@ footer ul i {
     margin-bottom: 20px;
 
 }
-.fillter li{
+
+.fillter li {
     cursor: pointer;
 }
+
 .productsPage {
     width: 90%;
 }
 
 .productsPage h1 {
-    margin: 20px 0 0px 70px;
+    margin: 20px 0 0px 20px;
+    font-size: 1.5rem;
 }
 
 
@@ -553,6 +576,7 @@ footer ul i {
 
 .products .product {
     overflow: hidden;
+    justify-content: center;
 
     width: 300px;
     display: flex;
@@ -574,12 +598,14 @@ footer ul i {
 
 
 }
-.products a{
+
+.products a {
     color: black;
     text-decoration: none;
 
 
 }
+
 .products .product figcaption {
 
     padding: 0 20px 30px 20px;
@@ -596,8 +622,8 @@ footer ul i {
 }
 
 
-.fillter h1{
-    font-size:  1.5rem;
+.fillter h1 {
+    font-size: 1.5rem;
     margin-bottom: 16px;
 
 }
@@ -609,14 +635,15 @@ footer ul i {
 
 
 
-.login{
+.login {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.login .inputs{
-    
+
+.login .inputs {
+
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -627,15 +654,18 @@ footer ul i {
     padding: 30px;
     margin: 40px;
 }
-.login h1{
+
+.login h1 {
     margin-bottom: 40px;
     text-align: center;
 }
-.login label{
+
+.login label {
     margin-top: 20px;
     /* height: 30px; */
 }
-.login input{
+
+.login input {
     margin-top: 10px;
     height: 30px;
     border-top: none;
@@ -644,13 +674,17 @@ footer ul i {
     font-size: 1rem;
 }
 
-input:focus{
+input:focus {
     outline: none;
 }
-.login input[type=submit]{
+
+.login input[type=submit] {
     margin: 40px 0 20px 0;
     background-color: #fcbb6a;
     border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
     border-radius: 10px;
     height: 40px;
 
@@ -673,41 +707,48 @@ input:focus{
 
 
 
-.productpage{
+.productpage {
     display: flex;
     justify-content: center;
     /* align-items: center; */
     /* height: 80vh; */
     margin: 0 7%;
 }
-.uperproduct{
+
+.uperproduct {
     flex-wrap: wrap;
     display: flex;
     padding: 39px 0;
 }
 
-.productimage{
-    padding:0 40px;
+.productimage {
+    padding: 0 40px;
     width: 45%;
 }
-.productimage img{
+
+.productimage img {
     width: 70%;
 }
 
-.productdata{
+.productdata {
     width: 45%;
 }
-.title, .description,.price, .buy{
+
+.title,
+.description,
+.price,
+.buy {
     padding: 0 20px 40px 20px;
 }
 
-.buy button{
+.buy button {
     background-color: #FA8900;
     border: none;
     /* border-radius: 10px; */
     height: 50px;
     width: 40%;
     margin: 0 10px 0 0;
+    cursor: pointer;
     color: white;
     /* font-weight: bold; */
     font-size: 1rem;
@@ -721,20 +762,24 @@ input:focus{
 
 
 
-.profile-main{
+.profile-main {
     margin-top: 30px;
 }
-.profile img{
+
+.profile img {
     width: 250px;
 }
-.profile .userData{
+
+.profile .userData {
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
-.profile input, textarea{
+
+.profile input,
+textarea {
     border: 1px solid rgba(0, 0, 0, 0.284);
     border-radius: 10px;
     font-size: 1.2rem;
@@ -744,17 +789,18 @@ input:focus{
     margin: 10px 0px;
 }
 
-.profile .buttons{
+.profile .buttons {
     display: flex;
     justify-content: center;
 }
 
-.profile button{
+.profile button {
     background-color: #FA8900;
     width: 100px;
     height: 40px;
     border-radius: 10px;
     border: none;
+    cursor: pointer;
     margin: 20px 10px;
     color: white;
     font-size: 1rem;
@@ -766,6 +812,138 @@ input:focus{
 
 
 
+.cart-container {
+    background-color: rgba(0, 0, 0, 0.039);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.cart {
+    /* background-color: blue; */
+    margin: 70px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+}
+
+.cart-items {
+    /* background-color: red; */
+    width: 70%;
+
+}
+
+.cart-item img {
+    width: 100%;
+}
+
+.item-image {
+    width: 10%;
+}
+
+.cart-item {
+    margin: 10px 0 0 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item-description {
+    margin: 0 40px;
+    width: 20%;
+}
+
+/* .product-description{
+    width: 40%;
+} */
+
+.cart-right {
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cart .button {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    margin: 0 0px 0 50px;
+}
+
+.cart .button button {
+    height: 40px;
+    width: 100px;
+    background-color: #FA8900;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+
+}
+
+.quantity {
+    margin: 0 0px 0 50px;
+
+
+}
+
+
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-button {
+    background-color: #FA8900;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.quantity-button:hover {
+    background-color: #FA8900;
+}
+
+.count-input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid #FA8900;
+    font-size: 1rem;
+    padding: 5px;
+    margin: 0 10px;
+    outline: none;
+}
+
+
+.checkout{
+    width: 30%;
+    background-color: #ffffff; /* Set the background color of your element */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+}
+.checkout button{
+    background-color: #FA8900;
+    width:70%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+
+}
+.checkout p{
+    margin: 30px 10px;
+}
 @media (max-width:1600px) {
     .navbar {
         margin: 0 5%;
@@ -848,12 +1026,27 @@ input:focus{
 
     }
 
-    .login .inputs{
+    .login .inputs {
         width: 50%;
     }
+
 }
 
 @media (max-width:858px) {
+    .cart {
+        /* background-color: blue; */
+        margin: 30px;
+
+    
+    }
+    .item-description {
+        margin: 0 40px;
+        width: 30%;
+    }
+    .cart-item {
+        margin: 10px 0 0 0px;
+        justify-content:flex-start;
+    }
     .navbar .search input {
 
         width: 200px;
@@ -920,26 +1113,33 @@ input:focus{
 
 
 
-    .productimage{
-        padding:0 0px;
+    .productimage {
+        padding: 0 0px;
         width: 100%;
     }
 
-    
-    .productdata{
+
+    .productdata {
         width: 100%;
     }
-    .productdata h1{
+
+    .productdata h1 {
         font-size: 1.3rem;
-        margin: 50px 0 0 0 ;
+        margin: 50px 0 0 0;
     }
-    .title, .description,.price, .buy{
+
+    .title,
+    .description,
+    .price,
+    .buy {
         padding: 0 0px 40px 0px;
     }
 }
 
 @media (max-width:756px) {
-
+    .cart .product-name h2{
+        font-size: 0.8rem;
+    }
     .navbar {
         margin: 0 10px;
 
@@ -1048,8 +1248,16 @@ input:focus{
 
 
 
-    .profile input, textarea{
+    .profile input,
+    textarea {
         width: 350px;
+    }
+
+    .cart {
+        /* background-color: blue; */
+        margin: 10px;
+
+    
     }
 
 }
@@ -1084,7 +1292,26 @@ input:focus{
 
 
     }
+    .item-description {
+        margin: 0 40px;
+        width: 50%;
+    }
+    .item-image {
+        width: 20%;
+    }
+    .quantity-container {
+        display: flex;
+        align-items: flex-start;
+    }
+    .quantity {
+        margin: 0 0px 0 10px;
+    
+    
+    }
+    .cart .button {
 
+        margin: 10px 0px 0 10px;
+    }
 
     footer .footer {
         padding: 50px 0;
@@ -1093,9 +1320,19 @@ input:focus{
         flex-wrap: wrap;
         justify-content: space-between;
     }
-    
-    .login .inputs{
+
+    .login .inputs {
         width: 70%;
+    }
+
+    .cart-items {
+        /* background-color: red; */
+        width: 100%;
+    
+    }
+    .checkout{
+        width: 100%;
+        margin-top: 40px;
     }
 }
 
@@ -1109,7 +1346,7 @@ input:focus{
     .cart,
     .auth {
         font-size: 0.7rem;
-        margin: 0 7px;
+        margin: 0 1px;
 
     }
 
@@ -1147,7 +1384,9 @@ input:focus{
 
 
     }
-    .profile input, textarea{
+
+    .profile input,
+    textarea {
         width: 300px;
     }
 
@@ -1160,14 +1399,16 @@ input:focus{
 
 
     }
-    
-    .login .inputs{
+
+    .login .inputs {
         width: 80%;
     }
-    .profile input, textarea{
+
+    .profile input,
+    textarea {
         width: 200px;
     }
-    
+
 }
 
 @media (max-width:355px) {
@@ -1175,9 +1416,10 @@ input:focus{
         width: 100%;
         margin-bottom: 39px;
     }
-        .products .product {
+
+    .products .product {
         overflow: hidden;
-    
+
         width: 40%;
         display: flex;
         height: auto;
@@ -1187,29 +1429,45 @@ input:focus{
         margin-top: 30px;
         box-shadow: 1px 1px 19px 1px rgba(0, 0, 0, 0.093);
         border-radius: 7px;
-    
-    
+
+
     }
 }
 
 @media (max-width:322px) {
+
+    .navbar .fmenu,
+    .fav,
+    .cart,
+    .auth {
+        font-size: 0.7rem;
+        margin: 0 0px;
+
+    }
+
     .bnavbar ul {
         overflow: auto;
         white-space: nowrap;
         padding-left: 1px;
     }
-    
+
     .cards .card {
         margin: 20px;
         width: 100%;
 
     }
-    .profile input, textarea{
+
+    .profile input,
+    textarea {
         width: 150px;
     }
 
-    .profile img{
+    .profile img {
         width: 200px;
+    }
+    .item-description {
+        margin: 0 10px;
+        width: 50%;
     }
 
 }

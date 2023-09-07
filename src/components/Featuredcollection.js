@@ -2,23 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import video from '../images/applewatch.mp4'
 import applewatch from '../images/applewatch.jpg'
+import { useAuth } from '../AuthContext'
 
-const API_URL = 'https://drab-gold-shark-boot.cyclic.app';
 
 const Featuredcollection = () => {
-  const [products, setProducts] = useState([]);
+  const {API_URL}=useAuth()
 
+    const [products, setProducts] = useState([]);
+    
   useEffect(() => {
-    fetch(`${API_URL}/getfeaturedproduct`, {
-      method: 'POST',
+    fetch(`${API_URL}/product/getfeaturedproduct`, {
+      method: 'GET',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => {setProducts(data.FeaturedProducts)
+      })
       .catch((error) => console.error('Error fetching data:', error));
-  }, []);
+  }, [API_URL]);
 
   return (
     <div>
@@ -32,7 +35,7 @@ const Featuredcollection = () => {
               <Link to={`/productbuy/${product._id}`}>
                 <figure>
                   <img
-                    src={`${API_URL}/${product.productImages[0].destination}/${product.productImages[0].filename}`}
+                    src={`${API_URL}/product/${product.productImages[0].destination}/${product.productImages[0].filename}`}
                     alt=""
                   />
                   <figcaption>

@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import loader from '../icons/loader.gif'
+import { useAuth } from '../AuthContext'
 
-const API_URL = 'https://drab-gold-shark-boot.cyclic.app';
+
 
 function Products() {
+  const {API_URL}=useAuth()
+  const [Loading, setLoading] = useState(true);
   const { query } = useParams();
   const [searchProduct, setSearchProduct] = useState([]);
   const [price, setPrice] = useState(999);
 
   useEffect(() => {
-    fetch(`${API_URL}/search`, {
-      method: 'POST',
-      body: JSON.stringify({ query }),
+    setLoading(true)
+    fetch(`${API_URL}/product/search/${query}`, {
+      method: 'GET',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
       .then((res) => res.json())
-      .then((data) => setSearchProduct(data))
+      .then((data) =>{ 
+        setSearchProduct(data.searchProducts)
+        setLoading(false)
+      })
       .catch((error) => console.error('Error fetching data:', error));
   }, [query]);
 
@@ -27,7 +34,11 @@ function Products() {
 
   return (
     <div className="productBg">
-      <div className="prouctMain">
+            {Loading ? (
+        <div className="loader">
+          <img src={loader} alt='loader' />
+        </div>
+      ) : (<div className="prouctMain">
         <div className="fillter">
           <h1>Filter</h1>
           <hr />
@@ -102,18 +113,18 @@ function Products() {
         <div className="productsPage">
           <h1>Search results:- {query}</h1>
           <div className="products">
-            {searchProduct.map((arr, index) => (
-              <div key={index} className="product">
-                <Link to={`/productbuy/${arr._id}`}>
+            {searchProduct.map((product, index) => (
+                <div key={index} className="product">
+                <Link to={`/productbuy/${product._id}`}>
                   <figure>
                     <img
                       height={100}
                       width={300}
-                      src={`${API_URL}/${arr.productImages[0].destination}/${arr.productImages[0].filename}`}
+                      src={`${API_URL}/product/${product.productImages[0].destination}/${product.productImages[0].filename}`}
                       alt=""
                     />
                     <figcaption>
-                      <h4>{`${arr.title.slice(0, 20)}.....`}</h4>
+                      <h4>{`${product.title.slice(0, 20)}.....`}</h4>
                       <br />
                       <div className="rating" style={{ color: 'gold' }}>
                         {Array.from({ length: 5 }).map((_, i) => (
@@ -124,8 +135,8 @@ function Products() {
                       <p>
                         Price:-
                         <span style={{ color: 'black', fontSize: '1.2rem' }}>
-                          <b> ₹{arr.price} </b>
-                        </span>
+                          <b> ₹{product.price} </b>
+                        </span>{' '}
                         <strike>${90000}</strike>
                       </p>
                     </figcaption>
@@ -135,7 +146,7 @@ function Products() {
             ))}
           </div>
         </div>
-      </div>
+      </div>)}
       <br />
       <br />
       <br />

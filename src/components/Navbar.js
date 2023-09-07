@@ -63,9 +63,11 @@ export default function Navbar() {
                   </div>
                 </Link>
               )}
-              <div className="cart">
+              <Link to="/cart">
+              <div className="cart-icon">
                 <img src={cart} alt="" />&nbsp;<span>Cart</span>
               </div>
+              </Link>
               <div className="fav">
                 <img src={wish} alt="" />&nbsp;<span>&nbsp;Favorite<br />&nbsp;Wish List</span>
               </div>

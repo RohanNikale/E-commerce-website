@@ -5,7 +5,7 @@ import three from '../images/catbanner-03.jpg';
 import four from '../images/catbanner-04.jpg';
 import fashion from '../images/fashion.jpg';
 import video from '../images/video.mp4';
-
+import poster from '../images/main-banner-1.jpg'
 export default function Topmain() {
   const [sound, setSound] = useState(true);
   const videoRef = useRef(null);
@@ -36,7 +36,7 @@ export default function Topmain() {
                 src={video}
                 type="video/mp4"
                 ref={videoRef}
-                poster={one} // Add a poster image to improve initial loading
+                poster={poster}
               ></video>
               <figcaption>
                 <span>SUPERCHARGED AIR POD'S</span>

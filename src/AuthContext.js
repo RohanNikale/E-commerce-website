@@ -1,43 +1,47 @@
 // AuthContext.js
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 
 const AuthContext = createContext();
-const API_URL = 'http://localhost:8000/user';
+const API_URL = 'https://drab-gold-shark-boot.cyclic.app';
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState({
     name: 'Login',
     email: 'abc@xyz.com',
-    phone: 902140514,
+    phone: 9000000000,
     address: 'B-5, Sector -67, Noida Uttar Pradesh, India',
   });
 
+
   const token = Cookies.get('token');
+  useEffect(() => {
 
-  const fetchUserData = async () => {
-    try {
-      const response = await fetch(`${API_URL}/getuserprofile`, {
-        method: 'GET',
-        headers: {
-          'token': token,
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      });
-  
-      if (response.ok) {
-        const user = await response.json();
-        setUserData(user.user);
-      } else {
-        console.error('Failed to fetch user data.');
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch(`${API_URL}/user/getuserprofile`, {
+          method: 'GET',
+          headers: {
+            'token': token,
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        });
+
+        if (response.ok) {
+          const user = await response.json();
+          setIsLoggedIn(true)
+          setUserData(user.user);
+        } else {
+          console.error('Failed to fetch user data.');
+        }
+      } catch (error) {
+        console.error('An error occurred while fetching user data.', error);
       }
-    } catch (error) {
-      console.error('An error occurred while fetching user data.', error);
-    }
-  };  
+    };
 
-  fetchUserData();
+    fetchUserData();
+  }, [token])
 
   const login = () => {
     setIsLoggedIn(true);
@@ -49,7 +53,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout,userData,setUserData }}>
+    <AuthContext.Provider value={{ isLoggedIn, login, logout, userData, setUserData ,API_URL}}>
       {children}
     </AuthContext.Provider>
   );
